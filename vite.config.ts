@@ -16,7 +16,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         // target: "http://localhost:5000",
-        target: "https://chess-backend-nine.vercel.app/api",
+        target: "https://chess-backend-nine.vercel.app",
         changeOrigin: true,
       },
     },
