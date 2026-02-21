@@ -22,11 +22,11 @@ const B2B = lazy(() => import("@/pages/B2B"));
 const Service = lazy(() => import("@/pages/Service"));
 const Wishlist = lazy(() => import("@/pages/Wishlist"));
 const AdminDashboard = lazy(() => import("@/pages/AdminDashboard"));
-const AdminCategories = lazy(() => import("@/pages/admin/AdminCategories"));
-const AdminProducts = lazy(() => import("@/pages/admin/AdminProducts"));
-const AdminOrders = lazy(() => import("@/pages/admin/AdminOrders"));
-const AdminCustomers = lazy(() => import("@/pages/admin/AdminCustomers"));
-const AdminInventory = lazy(() => import("@/pages/admin/AdminInventory"));
+const AdminCategories = lazy(() => import("@/pages/Admin/AdminCategories"));
+const AdminProducts = lazy(() => import("@/pages/Admin/AdminProducts"));
+const AdminOrders = lazy(() => import("@/pages/Admin/AdminOrders"));
+const AdminCustomers = lazy(() => import("@/pages/Admin/AdminCustomers"));
+const AdminInventory = lazy(() => import("@/pages/Admin/AdminInventory"));
 const OrderDetails = lazy(() => import("@/pages/OrderDetails"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
