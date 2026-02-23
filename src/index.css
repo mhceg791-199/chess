@@ -41,52 +41,54 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   /* CHESS Brand Colors */
-  --color-chess-charcoal: oklch(0.22 0.01 250);
+  --color-chess-charcoal: oklch(0% 0 0);
   --color-chess-graphite: oklch(0.33 0.01 250);
-  --color-chess-offwhite: oklch(0.97 0.005 80);
-  --color-chess-bronze: oklch(0.65 0.1 70);
+  --color-chess-offwhite: oklch(99.115% 0.00423 15.765);
+  --color-chess-bronze: oklch(73.206% 0.09159 82.283);
   --color-chess-success: oklch(0.52 0.1 150);
   --color-chess-warning: oklch(0.72 0.12 85);
   --color-chess-error: oklch(0.48 0.15 25);
   --color-chess-cream: oklch(0.95 0.008 80);
-  --font-display: "Playfair Display", Georgia, serif;
+  --font-display: "Font Awesome 6 Free", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
-
+/* h1{
+  color: oklch(0.97 0.005 80);
+} */
 :root {
   --radius: 0.5rem;
-  --primary: oklch(0.22 0.01 250);
-  --primary-foreground: oklch(0.97 0.005 80);
-  --background: oklch(0.97 0.005 80);
-  --foreground: oklch(0.22 0.01 250);
+  --primary: oklch(0% 0 0);
+  --primary-foreground: oklch(99.115% 0.00423 15.765);
+  --background: oklch(99.115% 0.00423 15.765);
+  --foreground: oklch(0% 0 0);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.01 250);
+  --card-foreground: oklch(0% 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.01 250);
+  --popover-foreground: oklch(0% 0 0);
   --secondary: oklch(0.95 0.008 80);
   --secondary-foreground: oklch(0.33 0.01 250);
   --muted: oklch(0.93 0.005 80);
   --muted-foreground: oklch(0.5 0.01 250);
-  --accent: oklch(0.65 0.1 70);
+  --accent: oklch(73.206% 0.09159 82.283);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.48 0.15 25);
-  --destructive-foreground: oklch(0.97 0.005 80);
+  --destructive-foreground: oklch(99.115% 0.00423 15.765);
   --border: oklch(0.88 0.005 80);
   --input: oklch(0.88 0.005 80);
-  --ring: oklch(0.65 0.1 70);
-  --chart-1: oklch(0.65 0.1 70);
+  --ring: oklch(73.206% 0.09159 82.283);
+  --chart-1: oklch(73.206% 0.09159 82.283);
   --chart-2: oklch(0.52 0.1 150);
   --chart-3: oklch(0.33 0.01 250);
-  --chart-4: oklch(0.72 0.12 85);
-  --chart-5: oklch(0.22 0.01 250);
-  --sidebar: oklch(0.22 0.01 250);
-  --sidebar-foreground: oklch(0.97 0.005 80);
-  --sidebar-primary: oklch(0.65 0.1 70);
+  --chart-4: oklch(73.206% 0.09159 82.283);
+  --chart-5: oklch(0% 0 0);
+  --sidebar: oklch(0% 0 0);
+  --sidebar-foreground: oklch(99.115% 0.00423 15.765);
+  --sidebar-primary: oklch(73.206% 0.09159 82.283);
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.33 0.01 250);
-  --sidebar-accent-foreground: oklch(0.97 0.005 80);
+  --sidebar-accent-foreground: oklch(99.115% 0.00423 15.765);
   --sidebar-border: oklch(0.33 0.01 250);
-  --sidebar-ring: oklch(0.65 0.1 70);
+  --sidebar-ring: oklch(73.206% 0.09159 82.283);
 }
 
 @layer base {
@@ -157,7 +159,7 @@
 
   /* Bronze gradient for CTAs */
   .bronze-gradient {
-    background: linear-gradient(135deg, #B08D57 0%, #D4A95A 50%, #B08D57 100%);
+    background: linear-gradient(135deg, #C5A363 0%, #D4A95A 50%, #C5A363 100%);
   }
 
   /* Subtle card hover lift */
@@ -183,7 +185,7 @@ html {
   background: #F6F4F1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #B08D57;
+  background: #C5A363;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {

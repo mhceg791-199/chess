@@ -114,7 +114,7 @@ export default function Header() {
               alt="CHESS"
               className="h-12 lg:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="hidden sm:flex flex-col leading-none">
+            <div className="hidden sm:flex flex-col leading-none opacity-0">
               <span className="font-display text-lg lg:text-xl font-bold text-chess-charcoal tracking-tight">CHESS</span>
               <span className="text-[8px] lg:text-[9px] uppercase tracking-[0.15em] text-chess-bronze font-semibold mt-0.5">by Mosaic Holding Corp.</span>
             </div>

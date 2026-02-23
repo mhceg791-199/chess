@@ -44,10 +44,10 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <img src={LOGO.dark} alt="CHESS" className="h-14 w-auto invert brightness-200" style={{ filter: 'brightness(0) invert(1)' }} />
-              <div className="flex flex-col leading-none">
+              {/* <div className="flex flex-col leading-none">
                 <span className="font-display text-xl font-bold text-white tracking-tight">CHESS</span>
                 <span className="text-[9px] uppercase tracking-[0.15em] text-chess-bronze font-semibold mt-1">by Mosaic Holding Corp.</span>
-              </div>
+              </div> */}
             </div>
             <p className="text-sm text-white/60 leading-relaxed mb-3">
               Canadian Home, Electrical and Supply Solutions. A unified platform for residential and commercial projects.

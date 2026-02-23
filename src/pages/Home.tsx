@@ -107,7 +107,7 @@ export default function Home() {
             >
               <img
                 src={slide.image}
-                alt=""
+                alt="chess"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-chess-charcoal/80 via-chess-charcoal/50 to-transparent" />
@@ -122,9 +122,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <span className="inline-block px-3 py-1 mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-chess-bronze border border-chess-bronze/40 rounded-sm">
-                  CHESS by MHC
-                </span>
+                
                 <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-4">
                   {heroSlides[heroIndex].title}
                 </h1>

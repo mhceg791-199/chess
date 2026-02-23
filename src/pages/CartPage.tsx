@@ -70,7 +70,7 @@ export default function CartPage() {
             <nav className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Link href="/" className="hover:text-chess-bronze transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
-              <span className="text-chess-charcoal font-medium">Shopping Cart</span>
+              <span className="font-medium">Shopping Cart</span>
             </nav>
           </div>
         </div>
