@@ -5,8 +5,7 @@
 
 import type { Product, Category, Order, CartItem } from "@/types";
 
-// const API_BASE = "https://chess-backend-nine.vercel.app/api" ;
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://chess-backend-nine.vercel.app/api" ;
 
 interface ApiResponse<T> {
   success: boolean;
