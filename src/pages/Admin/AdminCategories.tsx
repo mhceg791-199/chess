@@ -282,7 +282,7 @@ export default function AdminCategories() {
           </button>
           <button
             onClick={openCreateForm}
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient text-chess-charcoal rounded-sm hover:opacity-90 transition-opacity"
+            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient-black text-white rounded-sm hover:opacity-90 transition-opacity"
           >
             <Plus className="w-3.5 h-3.5" /> New Category
           </button>
@@ -571,7 +571,7 @@ export default function AdminCategories() {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient text-chess-charcoal rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient-black text-white rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
               >
                 {saving ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
                 {editingId ? "Update" : "Create"}
@@ -685,7 +685,7 @@ export default function AdminCategories() {
               <button
                 onClick={handleReassign}
                 disabled={reassigning || !reassignFrom || !reassignTo}
-                className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient text-chess-charcoal rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient-black text-white rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
               >
                 {reassigning ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <ArrowRightLeft className="w-3.5 h-3.5" />}
                 Reassign

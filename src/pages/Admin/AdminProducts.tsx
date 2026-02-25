@@ -311,7 +311,7 @@ export default function AdminProducts() {
         </div>
         <button
           onClick={openCreateForm}
-          className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient text-chess-charcoal rounded-sm hover:opacity-90 transition-opacity"
+          className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient-black text-white rounded-sm hover:opacity-90 transition-opacity"
         >
           <Plus className="w-3.5 h-3.5" /> New Product
         </button>
@@ -612,7 +612,7 @@ export default function AdminProducts() {
 
             <div className="flex justify-end gap-2 px-6 py-4 border-t border-border/50">
               <button onClick={() => setShowForm(false)} className="px-4 py-2 text-xs font-medium border border-border rounded-sm hover:bg-chess-cream transition-colors">Cancel</button>
-              <button onClick={handleSave} disabled={saving} className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient text-chess-charcoal rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50">
+              <button onClick={handleSave} disabled={saving} className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bronze-gradient-black text-white rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50">
                 {saving ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
                 {editingId ? "Update" : "Create"}
               </button>

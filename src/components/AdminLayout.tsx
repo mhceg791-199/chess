@@ -65,8 +65,8 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
       {/* Logo */}
       <div className="p-4 border-b border-border/50">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-sm bronze-gradient flex items-center justify-center">
-            <span className="text-chess-charcoal font-display font-bold text-sm">C</span>
+          <div className="w-8 h-8 rounded-sm bronze-gradient-black flex items-center justify-center">
+            <span className="text-white font-display font-bold text-sm">C</span>
           </div>
           {sidebarOpen && (
             <span className="font-display font-semibold text-chess-charcoal text-sm">CHESS Admin</span>
