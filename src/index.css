@@ -44,16 +44,16 @@
   --color-chess-charcoal: oklch(0% 0 0);
   --color-chess-graphite: oklch(0.33 0.01 250);
   --color-chess-offwhite: oklch(99.115% 0.00423 15.765);
-  --color-chess-bronze: oklch(73.206% 0.09159 82.283);
-  --color-chess-success: oklch(0.52 0.1 150);
+  --color-chess-bronze:  #000000;
+  --color-chess-success:  #000000;
   --color-chess-warning: oklch(0.72 0.12 85);
-  --color-chess-error: oklch(0.48 0.15 25);
+  --color-chess-error: #000000;
   --color-chess-cream: oklch(0.95 0.008 80);
   --font-display: "Font Awesome 6 Free", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 /* h1{
-  color: oklch(0.97 0.005 80);
+  color: #fffbfb        #0000000;
 } */
 :root {
   --radius: 0.5rem;
@@ -75,7 +75,7 @@
   --destructive-foreground: oklch(99.115% 0.00423 15.765);
   --border: oklch(0.88 0.005 80);
   --input: oklch(0.88 0.005 80);
-  --ring: oklch(73.206% 0.09159 82.283);
+  --ring:  #000000;
   --chart-1: oklch(73.206% 0.09159 82.283);
   --chart-2: oklch(0.52 0.1 150);
   --chart-3: oklch(0.33 0.01 250);
@@ -159,7 +159,10 @@
 
   /* Bronze gradient for CTAs */
   .bronze-gradient {
-    background: linear-gradient(135deg, #C5A363 0%, #D4A95A 50%, #C5A363 100%);
+    background: linear-gradient(135deg, #fffbfb 0%, #e0d9d9 50%, #fffbfb 100%);
+  }
+   .bronze-gradient-black {
+    background: linear-gradient(135deg, #000000 0%, #312f2f 50%, #000000 100%);
   }
 
   /* Subtle card hover lift */
@@ -185,9 +188,9 @@ html {
   background: #F6F4F1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C5A363;
+  background: #000000;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #9A7A4A;
+  background: #444242;
 }

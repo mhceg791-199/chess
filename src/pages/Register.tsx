@@ -137,7 +137,7 @@ export default function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bronze-gradient-black text-white text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
           >
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Create Account <ArrowRight className="w-4 h-4" /></>}
           </button>

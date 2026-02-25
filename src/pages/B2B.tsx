@@ -95,7 +95,7 @@ export default function B2B() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                { icon: <Calculator className="w-6 h-6" />, title: "Volume Pricing", desc: "Tiered pricing structures based on project scale. Dedicated pricing for 10+ units with additional discounts at 50, 100, and 500+ unit thresholds." },
+                { icon: <Calculator className="w-6 h-6" />, title: "Volume Pricing", desc: "Strategic pricing solutions designed to support contractors, developers, and commercial projects with competitive bulk purchasing benefits." },
                 { icon: <Users className="w-6 h-6" />, title: "Dedicated Account Manager", desc: "Single point of contact for your entire project. Your account manager coordinates specifications, logistics, and after-sales support." },
                 { icon: <FileText className="w-6 h-6" />, title: "Custom Specifications", desc: "Modify finishes, dimensions, and configurations to meet project requirements. Custom branding available for hospitality clients." },
                 { icon: <Truck className="w-6 h-6" />, title: "Staged Delivery", desc: "Coordinate deliveries with your construction schedule. We warehouse and ship to match your project phases." },
@@ -155,7 +155,6 @@ export default function B2B() {
 
                 <div className="space-y-4">
                   {[
-                    { icon: <CheckCircle2 className="w-4 h-4" />, text: "No minimum order requirements" },
                     { icon: <CheckCircle2 className="w-4 h-4" />, text: "Custom finish and configuration options" },
                     { icon: <CheckCircle2 className="w-4 h-4" />, text: "Dedicated project coordination" },
                     { icon: <CheckCircle2 className="w-4 h-4" />, text: "Net 30/60/90 payment terms available" },

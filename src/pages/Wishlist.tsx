@@ -138,7 +138,7 @@ export default function Wishlist() {
               <Heart className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
               <h2 className="font-display text-xl font-semibold text-chess-charcoal mb-2">Your wishlist is empty</h2>
               <p className="text-muted-foreground mb-6">Save items you love for later.</p>
-              <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm">
+              <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 bronze-gradient-black text-white text-sm font-semibold rounded-sm">
                 Start Shopping <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

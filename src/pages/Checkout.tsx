@@ -195,7 +195,7 @@ export default function Checkout() {
                     <button onClick={() => {
                       if (!form.firstName || !form.lastName || !form.email || !form.address || !form.city || !form.postalCode) { toast.error("Please fill in all required fields."); return; }
                       setStep(2);
-                    }} className="w-full py-3 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity">
+                    }} className="w-full py-3 bronze-gradient-black text-white text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity">
                       Continue to Review
                     </button>
                   </div>
@@ -239,7 +239,7 @@ export default function Checkout() {
                     </div>
 
                     <button onClick={() => setStep(3)}
-                      className="w-full py-3 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity">
+                      className="w-full py-3 bronze-gradient-black text-white text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity">
                       Continue to Payment
                     </button>
                   </div>

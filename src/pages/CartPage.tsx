@@ -85,7 +85,7 @@ export default function CartPage() {
               <ShoppingBag className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
               <h2 className="font-display text-xl font-semibold text-chess-charcoal mb-2">Your cart is empty</h2>
               <p className="text-muted-foreground mb-6">Browse our products and add items to your cart.</p>
-              <Link href="/category/all" className="inline-flex items-center gap-2 px-6 py-3 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity">
+              <Link href="/category/all" className="inline-flex items-center gap-2 px-6 py-3 bronze-gradient-black text-white text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity">
                 Browse Products <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
@@ -225,7 +225,7 @@ export default function CartPage() {
                   <button
                     onClick={handleCheckout}
                     disabled={checkoutLoading || items.length === 0}
-                    className="w-full flex items-center justify-center gap-2 py-3 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+                    className="w-full flex items-center justify-center gap-2 py-3 bronze-gradient-black text-white text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
                   >
                     {checkoutLoading ? (
                       <Loader2 className="w-4 h-4 animate-spin" />

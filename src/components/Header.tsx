@@ -73,19 +73,19 @@ export default function Header() {
         <div className="container flex items-center justify-between h-8">
           <div className="hidden md:flex items-center gap-4">
             <span className="flex items-center gap-1.5">
-              <Truck className="w-3 h-3 text-chess-bronze" />
+              <Truck className="w-3 h-3 text-white" />
               Free shipping on orders over $499
             </span>
             <span className="flex items-center gap-1.5">
-              <Shield className="w-3 h-3 text-chess-bronze" />
+              <Shield className="w-3 h-3 text-white" />
               Extended warranty available
             </span>
           </div>
           <div className="flex items-center gap-4 ml-auto">
-            <Link href="/service" className="flex items-center gap-1 hover:text-chess-bronze transition-colors">
+            <Link href="/service" className="flex items-center gap-1 hover:text-white/70 transition-colors">
               <Headphones className="w-3 h-3" /> Service & Support
             </Link>
-            <Link href="/b2b" className="flex items-center gap-1 hover:text-chess-bronze transition-colors">
+            <Link href="/b2b" className="flex items-center gap-1 hover:text-white/70 transition-colors">
               <Building2 className="w-3 h-3" /> Commercial / B2B
             </Link>
             <span className="flex items-center gap-1">

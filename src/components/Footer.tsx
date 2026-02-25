@@ -71,9 +71,9 @@ export default function Footer() {
 
           {/* Shop */}
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-chess-bronze">Shop</h4>
+            <h4 className="text-sm font-semibold mb-4 text-white">Shop</h4>
             <ul className="space-y-2.5">
-              {["Appliances", "Furniture", "Lighting", "Plumbing", "HVAC", "Electrical", "Building Materials", "Outdoor"].map((item) => (
+              {["Appliances", "Lighting", "Plumbing", "HVAC", "Electrical", "Building Materials", "Outdoor"].map((item) => (
                 <li key={item}>
                   <Link href={`/category/${item.toLowerCase().replace(/ /g, "-")}`} className="text-sm text-white/60 hover:text-chess-bronze transition-colors">
                     {item}
@@ -85,14 +85,13 @@ export default function Footer() {
 
           {/* Commercial */}
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-chess-bronze">Commercial</h4>
+            <h4 className="text-sm font-semibold mb-4 text-white">Commercial</h4>
             <ul className="space-y-2.5">
               {[
                 { label: "B2B Portal", href: "/b2b" },
                 { label: "Project Quotes", href: "/b2b" },
                 { label: "Volume Pricing", href: "/b2b" },
                 { label: "Hospitality Solutions", href: "/category/commercial" },
-                { label: "Contract Furniture", href: "/category/furniture" },
                 { label: "Bulk Orders", href: "/b2b" },
               ].map((item) => (
                 <li key={item.label}>
@@ -106,7 +105,7 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-chess-bronze">Support</h4>
+            <h4 className="text-sm font-semibold mb-4 text-white">Support</h4>
             <ul className="space-y-2.5">
               {[
                 { label: "Service & Warranty", href: "/service" },
@@ -127,7 +126,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="col-span-2 md:col-span-1">
-            <h4 className="text-sm font-semibold mb-4 text-chess-bronze">Contact</h4>
+            <h4 className="text-sm font-semibold mb-4 text-white">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-white/60">
                 <Phone className="w-4 h-4 shrink-0 mt-0.5 text-chess-bronze" />
@@ -154,19 +153,19 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container py-6 flex flex-wrap items-center justify-center gap-8 text-xs text-white/40">
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-chess-success" /> CSA Certified
+            <span className="w-2 h-2 rounded-full bg-white/80" /> CSA Certified
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-chess-success" /> UL Listed
+            <span className="w-2 h-2 rounded-full bg-white/80" /> UL Listed
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-chess-success" /> Energy Star Partner
+            <span className="w-2 h-2 rounded-full bg-white/80" /> Energy Star Partner
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-chess-success" /> BIFMA Certified
+            <span className="w-2 h-2 rounded-full bg-white/80" /> BIFMA Certified
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-chess-success" /> LEED Contributing
+            <span className="w-2 h-2 rounded-full bg-white/80" /> LEED Contributing
           </span>
         </div>
       </div>

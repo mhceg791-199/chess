@@ -68,8 +68,8 @@ export default function Home() {
     },
     {
       image: HERO_IMAGES.living,
-      title: "Furniture designed for how you live and work.",
-      subtitle: "From single rooms to entire hospitality projects.",
+      title: "Complete home appliance and integrated solutions designed for modern living.",
+      subtitle: "From private homes to large residential and hospitality developments.",
       cta1: { label: "Explore Furniture", href: "/category/furniture" },
       cta2: { label: "Project Quotes", href: "/b2b" },
     },
@@ -115,14 +115,14 @@ export default function Home() {
           ))}
 
           <div className="relative container h-full flex items-center">
-            <div className="max-w-xl">
+            <div className="max-w-2xl">
               <motion.div
                 key={heroIndex}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                
+
                 <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-4">
                   {heroSlides[heroIndex].title}
                 </h1>
@@ -152,9 +152,8 @@ export default function Home() {
                   <button
                     key={i}
                     onClick={() => setHeroIndex(i)}
-                    className={`h-1 rounded-full transition-all duration-500 ${
-                      i === heroIndex ? "w-10 bg-chess-bronze" : "w-4 bg-white/30"
-                    }`}
+                    className={`h-1 rounded-full transition-all duration-500 ${i === heroIndex ? "w-10  bg-white/30" : "w-4 bg-chess-bronze"
+                      }`}
                   />
                 ))}
               </div>
@@ -169,10 +168,10 @@ export default function Home() {
           <div className="container py-5">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
               {[
-                { icon: <Truck className="w-5 h-5 text-chess-bronze" />, title: "Free Shipping", desc: "On orders over $499" },
-                { icon: <Shield className="w-5 h-5 text-chess-bronze" />, title: "Extended Warranty", desc: "Up to 10 years coverage" },
-                { icon: <Headphones className="w-5 h-5 text-chess-bronze" />, title: "Expert Support", desc: "Dedicated project advisors" },
-                { icon: <Clock className="w-5 h-5 text-chess-bronze" />, title: "Fast Delivery", desc: "Most items ship in 3-5 days" },
+                { icon: <Truck className="w-5 h-5 text-chess-bronze" />, title: "Free Shipping" },
+                { icon: <Shield className="w-5 h-5 text-chess-bronze" />, title: "Extended Warranty" },
+                { icon: <Headphones className="w-5 h-5 text-chess-bronze" />, title: "Expert Support" },
+                { icon: <Clock className="w-5 h-5 text-chess-bronze" />, title: "Fast Delivery" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-sm bg-chess-cream flex items-center justify-center shrink-0">
@@ -545,7 +544,7 @@ export default function Home() {
             <motion.div {...fadeUp} className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-5xl mx-auto">
               <div className="flex items-center gap-6">
                 <div className="w-16 h-16 rounded-sm bg-chess-charcoal flex items-center justify-center shrink-0">
-                  <Building2 className="w-7 h-7 text-chess-bronze" />
+                  <Building2 className="w-7 h-7 text-white" />
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-semibold text-chess-charcoal mb-1">

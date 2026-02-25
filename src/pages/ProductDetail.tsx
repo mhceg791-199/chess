@@ -1070,7 +1070,7 @@ export default function ProductDetail() {
 
                 <button
                   onClick={handleAddToCart}
-                  className="flex-1 h-11 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm
+                  className="flex-1 h-11 bronze-gradient-black text-white text-sm font-semibold rounded-sm
                            flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
                 >
                   <ShoppingCart className="w-4 h-4" />
