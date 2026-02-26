@@ -56,23 +56,23 @@ export default function Service() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-chess-offwhite">
+    <div className="min-h-screen flex flex-col bg-chess-offwhite dark:bg-chess-charcoal transition-colors duration-300">
       <Header />
 
       <main className="flex-1">
         {/* Breadcrumb */}
-        <div className="bg-white border-b border-border">
+        <div className="bg-white dark:bg-chess-charcoal/80 border-b border-border dark:border-white/10">
           <div className="container py-3">
             <nav className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Link href="/" className="hover:text-chess-bronze transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
-              <span className="text-chess-charcoal font-medium">Service & Support</span>
+              <span className="text-chess-charcoal dark:text-chess-offwhite font-medium">Service & Support</span>
             </nav>
           </div>
         </div>
 
         {/* Hero */}
-        <section className="bg-chess-charcoal text-chess-offwhite py-16 md:py-20">
+        <section className="bg-chess-charcoal dark:bg-black/40 text-chess-offwhite py-16 md:py-20 border-b border-white/5">
           <div className="container">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-chess-bronze mb-3 block">
@@ -94,9 +94,9 @@ export default function Service() {
                 { icon: <Star className="w-5 h-5" />, value: "98%", label: "Satisfaction Rate" },
                 { icon: <MapPin className="w-5 h-5" />, value: "Coast to Coast", label: "Service Coverage" },
               ].map((stat, i) => (
-                <div key={i} className="bg-white/5 rounded-sm p-4 border border-white/10">
+                <div key={i} className="bg-white/5 dark:bg-white/10 rounded-sm p-4 border border-white/10">
                   <span className="text-chess-bronze mb-2 block">{stat.icon}</span>
-                  <p className="text-xl font-display font-bold">{stat.value}</p>
+                  <p className="text-xl font-display font-bold text-white">{stat.value}</p>
                   <p className="text-[10px] text-white/50 mt-0.5">{stat.label}</p>
                 </div>
               ))}
@@ -105,7 +105,7 @@ export default function Service() {
         </section>
 
         {/* Service options */}
-        <section className="py-12 bg-white border-b border-border">
+        <section className="py-12 bg-white dark:bg-chess-charcoal border-b border-border dark:border-white/10">
           <div className="container">
             <div className="grid md:grid-cols-3 gap-5">
               {[
@@ -118,15 +118,15 @@ export default function Service() {
                   onClick={() => setActiveTab(option.tab)}
                   className={`text-left p-5 rounded-sm border transition-all ${
                     activeTab === option.tab
-                      ? "border-chess-bronze bg-chess-bronze/5 shadow-sm"
-                      : "border-border/50 hover:border-chess-bronze/30"
+                      ? "border-chess-bronze dark:border-white bg-chess-bronze/5 dark:bg-white/10 shadow-sm"
+                      : "border-border/50 dark:border-white/40 hover:border-chess-bronze/30 dark:hover:border-chess-bronze/40"
                   }`}
                 >
-                  <span className={`block mb-3 ${activeTab === option.tab ? "text-chess-bronze" : "text-muted-foreground"}`}>
+                  <span className={`block mb-3 ${activeTab === option.tab ? "text-white" : "text-muted-foreground dark:text-white/40"}`}>
                     {option.icon}
                   </span>
-                  <h3 className="font-display text-base font-semibold text-chess-charcoal mb-1">{option.title}</h3>
-                  <p className="text-sm text-muted-foreground">{option.desc}</p>
+                  <h3 className="font-display text-base font-semibold text-chess-charcoal dark:text-white mb-1">{option.title}</h3>
+                  <p className="text-sm text-muted-foreground dark:text-white/60">{option.desc}</p>
                 </button>
               ))}
             </div>
@@ -134,42 +134,42 @@ export default function Service() {
         </section>
 
         {/* Active tab content */}
-        <section className="py-12 md:py-16">
+        <section className="py-12 md:py-16 bg-chess-offwhite dark:bg-chess-charcoal/50">
           <div className="container">
             {activeTab === "service" && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-2xl mx-auto">
-                <h2 className="font-display text-xl font-semibold text-chess-charcoal mb-6">Schedule a Service Appointment</h2>
-                <form onSubmit={handleServiceSubmit} className="bg-white rounded-sm border border-border/50 p-6 md:p-8 space-y-4">
+                <h2 className="font-display text-xl font-semibold text-chess-charcoal dark:text-white mb-6 text-center md:text-left">Schedule a Service Appointment</h2>
+                <form onSubmit={handleServiceSubmit} className="bg-white dark:bg-chess-charcoal dark:border-white/10 rounded-sm border border-border/50 p-6 md:p-8 space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Full Name *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Full Name *</label>
                       <input type="text" required value={serviceForm.name} onChange={(e) => setServiceForm({ ...serviceForm, name: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Email *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Email *</label>
                       <input type="email" required value={serviceForm.email} onChange={(e) => setServiceForm({ ...serviceForm, email: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Phone *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Phone *</label>
                       <input type="tel" required value={serviceForm.phone} onChange={(e) => setServiceForm({ ...serviceForm, phone: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Product Model # *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Product Model # *</label>
                       <input type="text" required value={serviceForm.productModel} onChange={(e) => setServiceForm({ ...serviceForm, productModel: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Serial Number</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Serial Number</label>
                       <input type="text" value={serviceForm.serialNumber} onChange={(e) => setServiceForm({ ...serviceForm, serialNumber: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Issue Type *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Issue Type *</label>
                       <select required value={serviceForm.issueType} onChange={(e) => setServiceForm({ ...serviceForm, issueType: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze bg-white">
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors">
                         <option value="">Select issue</option>
                         <option value="repair">Repair / Malfunction</option>
                         <option value="installation">Installation</option>
@@ -179,18 +179,18 @@ export default function Service() {
                       </select>
                     </div>
                   </div>
-                  <div>
-                    <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Preferred Service Date</label>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Preferred Service Date</label>
                     <input type="date" value={serviceForm.preferredDate} onChange={(e) => setServiceForm({ ...serviceForm, preferredDate: e.target.value })}
-                      className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                      className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                   </div>
-                  <div>
-                    <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Description of Issue *</label>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Description of Issue *</label>
                     <textarea rows={4} required value={serviceForm.description} onChange={(e) => setServiceForm({ ...serviceForm, description: e.target.value })}
                       placeholder="Please describe the issue in detail..."
-                      className="w-full px-3 py-2.5 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze resize-none" />
+                      className="w-full px-3 py-2.5 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze resize-none transition-colors" />
                   </div>
-                  <button type="submit" className="w-full h-11 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                  <button type="submit" className="w-full h-11 bronze-gradient-black dark:bronze-gradient text-white dark:text-chess-charcoal text-sm font-semibold rounded-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
                     Submit Service Request <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
@@ -199,42 +199,42 @@ export default function Service() {
 
             {activeTab === "warranty" && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-2xl mx-auto">
-                <h2 className="font-display text-xl font-semibold text-chess-charcoal mb-6">Register Your Product</h2>
-                <form onSubmit={handleWarrantySubmit} className="bg-white rounded-sm border border-border/50 p-6 md:p-8 space-y-4">
+                <h2 className="font-display text-xl font-semibold text-chess-charcoal dark:text-white mb-6 text-center md:text-left">Register Your Product</h2>
+                <form onSubmit={handleWarrantySubmit} className="bg-white dark:bg-chess-charcoal dark:border-white/10 rounded-sm border border-border/50 p-6 md:p-8 space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Full Name *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Full Name *</label>
                       <input type="text" required value={warrantyForm.name} onChange={(e) => setWarrantyForm({ ...warrantyForm, name: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Email *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Email *</label>
                       <input type="email" required value={warrantyForm.email} onChange={(e) => setWarrantyForm({ ...warrantyForm, email: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Product Model # *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Product Model # *</label>
                       <input type="text" required value={warrantyForm.productModel} onChange={(e) => setWarrantyForm({ ...warrantyForm, productModel: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Serial Number *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Serial Number *</label>
                       <input type="text" required value={warrantyForm.serialNumber} onChange={(e) => setWarrantyForm({ ...warrantyForm, serialNumber: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Purchase Date *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Purchase Date *</label>
                       <input type="date" required value={warrantyForm.purchaseDate} onChange={(e) => setWarrantyForm({ ...warrantyForm, purchaseDate: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Purchased From</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Purchased From</label>
                       <input type="text" value={warrantyForm.retailer} onChange={(e) => setWarrantyForm({ ...warrantyForm, retailer: e.target.value })}
                         placeholder="Retailer or project name"
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze" />
                     </div>
                   </div>
-                  <button type="submit" className="w-full h-11 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                  <button type="submit" className="w-full h-11 bronze-gradient-black dark:bronze-gradient text-white dark:text-chess-charcoal text-sm font-semibold rounded-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
                     Register Product <Shield className="w-4 h-4" />
                   </button>
                 </form>
@@ -243,25 +243,25 @@ export default function Service() {
 
             {activeTab === "parts" && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-2xl mx-auto">
-                <h2 className="font-display text-xl font-semibold text-chess-charcoal mb-6">Order Replacement Parts</h2>
-                <div className="bg-white rounded-sm border border-border/50 p-6 md:p-8">
-                  <div className="mb-6">
-                    <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Enter Product Model Number</label>
-                    <div className="flex gap-2">
+                <h2 className="font-display text-xl font-semibold text-chess-charcoal dark:text-white mb-6 text-center md:text-left">Order Replacement Parts</h2>
+                <div className="bg-white dark:bg-chess-charcoal dark:border-white/10 rounded-sm border border-border/50 p-6 md:p-8">
+                  <div className="mb-6 space-y-3">
+                    <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Enter Product Model Number</label>
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <input type="text" placeholder="e.g., CHE-RF-3600SS"
-                        className="flex-1 h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="flex-1 h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze" />
                       <button onClick={() => toast("Parts catalog search coming soon")}
-                        className="px-5 h-10 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity">
+                        className="px-5 h-10 bronze-gradient-black dark:bronze-gradient text-white dark:text-chess-charcoal text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity whitespace-nowrap">
                         Search Parts
                       </button>
                     </div>
                   </div>
-                  <div className="border-t border-border pt-6">
-                    <h3 className="text-sm font-semibold text-chess-charcoal mb-4">Popular Part Categories</h3>
+                  <div className="border-t border-border dark:border-white/10 pt-6">
+                    <h3 className="text-sm font-semibold text-chess-charcoal dark:text-white mb-4">Popular Part Categories</h3>
                     <div className="grid grid-cols-2 gap-3">
                       {["Filters & Cartridges", "Handles & Knobs", "Heating Elements", "Gaskets & Seals", "Motors & Pumps", "Shelves & Racks", "Thermostats", "Valves & Fittings"].map((cat) => (
                         <button key={cat} onClick={() => toast("Feature coming soon")}
-                          className="text-left p-3 rounded-sm border border-border/50 hover:border-chess-bronze/30 transition-colors text-sm text-chess-graphite hover:text-chess-bronze">
+                          className="text-left p-3 rounded-sm border border-border/50 dark:border-white/10 hover:border-chess-bronze/30 dark:hover:border-chess-bronze/40 transition-colors text-sm text-chess-graphite dark:text-white/70 hover:text-chess-bronze dark:hover:text-chess-bronze">
                           {cat}
                         </button>
                       ))}
@@ -274,26 +274,26 @@ export default function Service() {
         </section>
 
         {/* FAQ */}
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-12 md:py-16 bg-white dark:bg-chess-charcoal transition-colors">
           <div className="container max-w-2xl">
             <motion.div {...fadeUp} className="text-center mb-10">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-chess-bronze mb-2 block">Help Center</span>
-              <h2 className="font-display text-2xl font-semibold text-chess-charcoal">Frequently Asked Questions</h2>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-chess-bronze dark:text-white mb-2 block">Help Center</span>
+              <h2 className="font-display text-2xl font-semibold text-chess-charcoal dark:text-white">Frequently Asked Questions</h2>
             </motion.div>
 
             <div className="space-y-2">
               {faqs.map((faq, i) => (
-                <div key={i} className="border border-border/50 rounded-sm overflow-hidden">
+                <div key={i} className="border border-border/50 dark:border-white/10 rounded-sm overflow-hidden">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full flex items-center justify-between p-4 text-left text-sm font-medium text-chess-charcoal hover:bg-chess-cream/50 transition-colors"
+                    className="w-full flex items-center justify-between p-4 text-left text-sm font-medium text-chess-charcoal dark:text-white hover:bg-chess-cream/50 dark:hover:bg-white/5 transition-colors"
                   >
                     {faq.q}
                     <ChevronDown className={`w-4 h-4 shrink-0 ml-2 transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
                   </button>
                   {openFaq === i && (
                     <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} className="overflow-hidden">
-                      <p className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                      <p className="px-4 pb-4 text-sm text-muted-foreground dark:text-white/60 leading-relaxed">{faq.a}</p>
                     </motion.div>
                   )}
                 </div>
@@ -303,23 +303,23 @@ export default function Service() {
         </section>
 
         {/* Contact bar */}
-        <section className="bg-chess-cream py-10">
+        <section className="bg-chess-cream dark:bg-black/20 py-10 transition-colors">
           <div className="container">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-sm bg-chess-charcoal flex items-center justify-center">
-                  <Headphones className="w-5 h-5 text-chess-bronze" />
+                <div className="w-12 h-12 rounded-sm bg-chess-charcoal dark:bg-white/20 flex items-center justify-center shrink-0">
+                  <Headphones className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-display text-lg font-semibold text-chess-charcoal">Need immediate help?</h3>
-                  <p className="text-sm text-muted-foreground">Our support team is available Mon–Fri 8am–8pm EST</p>
+                  <h3 className="font-display text-lg font-semibold text-chess-charcoal dark:text-white">Need immediate help?</h3>
+                  <p className="text-sm text-muted-foreground dark:text-white/70">Our support team is available Mon–Fri 8am–8pm EST</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <a href="tel:18002437" className="inline-flex items-center gap-2 px-5 py-2.5 bg-chess-charcoal text-white text-sm font-semibold rounded-sm hover:bg-chess-graphite transition-colors">
+              <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+                <a href="tel:18002437" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-chess-charcoal dark:bg-white text-white dark:text-chess-charcoal text-sm font-semibold rounded-sm hover:bg-chess-graphite dark:hover:bg-chess-bronze/80 transition-colors">
                   <Phone className="w-4 h-4" /> 1-800-CHESS
                 </a>
-                <a href="mailto:support@chessproducts.ca" className="inline-flex items-center gap-2 px-5 py-2.5 border border-chess-charcoal text-chess-charcoal text-sm font-semibold rounded-sm hover:bg-chess-charcoal hover:text-white transition-colors">
+                <a href="mailto:support@chessproducts.ca" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-chess-charcoal dark:border-white/20 text-chess-charcoal dark:text-white text-sm font-semibold rounded-sm hover:bg-chess-charcoal hover:text-white dark:hover:bg-white/5 transition-colors">
                   <Mail className="w-4 h-4" /> Email Support
                 </a>
               </div>

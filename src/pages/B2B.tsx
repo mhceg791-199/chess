@@ -35,14 +35,14 @@ export default function B2B() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-chess-offwhite">
+    <div className="min-h-screen flex flex-col bg-chess-offwhite dark:bg-chess-charcoal transition-colors duration-300">
       <Header />
 
       <main className="flex-1">
         {/* Hero */}
         <section className="relative h-[400px] md:h-[480px] overflow-hidden">
           <img src={HERO_IMAGES.commercial} alt="Commercial solutions" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-chess-charcoal/85 via-chess-charcoal/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-chess-charcoal/90 via-chess-charcoal/70 dark:from-black/90 dark:via-black/70 to-transparent" />
           <div className="relative container h-full flex items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-xl">
               <span className="inline-block px-3 py-1 mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-chess-bronze border border-chess-bronze/40 rounded-sm">
@@ -62,7 +62,7 @@ export default function B2B() {
         </section>
 
         {/* Stats */}
-        <section className="bg-white border-b border-border">
+        <section className="bg-white dark:bg-chess-charcoal/80 border-b border-border dark:border-white/10 transition-colors">
           <div className="container py-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               {[
@@ -73,9 +73,9 @@ export default function B2B() {
               ].map((stat, i) => (
                 <motion.div key={i} {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.1 }}>
                   <div className="flex flex-col items-center">
-                    <span className="text-chess-bronze mb-2">{stat.icon}</span>
-                    <p className="text-2xl md:text-3xl font-display font-bold text-chess-charcoal">{stat.value}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
+                    <span className="text-chess-bronze dark:text-white mb-2">{stat.icon}</span>
+                    <p className="text-2xl md:text-3xl font-display font-bold text-chess-charcoal dark:text-chess-offwhite">{stat.value}</p>
+                    <p className="text-xs text-muted-foreground dark:text-white/70 mt-1">{stat.label}</p>
                   </div>
                 </motion.div>
               ))}
@@ -84,11 +84,11 @@ export default function B2B() {
         </section>
 
         {/* Services grid */}
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20 bg-chess-offwhite dark:bg-chess-charcoal transition-colors">
           <div className="container">
-            <motion.div {...fadeUp} className="mb-10">
+            <motion.div {...fadeUp} className="mb-10 text-center md:text-left">
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-chess-bronze mb-2 block">Why CHESS Commercial</span>
-              <h2 className="font-display text-2xl md:text-3xl font-semibold text-chess-charcoal">
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-chess-charcoal dark:text-white">
                 End-to-End Project Support
               </h2>
             </motion.div>
@@ -103,10 +103,10 @@ export default function B2B() {
                 { icon: <Briefcase className="w-6 h-6" />, title: "Project Documentation", desc: "Complete submittals, cut sheets, CAD files, and compliance documentation for every product in your specification." },
               ].map((service, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
-                  <div className="bg-white rounded-sm border border-border/50 p-6 h-full card-hover">
-                    <span className="text-chess-bronze mb-4 block">{service.icon}</span>
-                    <h3 className="font-display text-base font-semibold text-chess-charcoal mb-2">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{service.desc}</p>
+                  <div className="bg-white dark:bg-chess-charcoal/50 rounded-sm border border-border/50 dark:border-white/10 p-6 h-full card-hover group transition-all">
+                    <span className="text-chess-bronze dark:text-white mb-4 block group-hover:scale-110 transition-transform">{service.icon}</span>
+                    <h3 className="font-display text-base font-semibold text-chess-charcoal dark:text-white mb-2">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground dark:text-white/60 leading-relaxed">{service.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -115,7 +115,7 @@ export default function B2B() {
         </section>
 
         {/* Industries served */}
-        <section className="py-16 md:py-20 bg-chess-charcoal text-chess-offwhite">
+        <section className="py-16 md:py-20 bg-chess-charcoal dark:bg-black/40 text-chess-offwhite border-y border-white/5">
           <div className="container">
             <motion.div {...fadeUp} className="mb-10">
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-chess-bronze mb-2 block">Industries We Serve</span>
@@ -129,9 +129,9 @@ export default function B2B() {
                 { icon: <Award className="w-5 h-5" />, title: "Healthcare", desc: "Clinics, senior living, hospitals" },
               ].map((industry, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}>
-                  <div className="bg-white/5 rounded-sm p-5 border border-white/10 hover:border-chess-bronze/30 transition-colors">
-                    <span className="text-chess-bronze mb-3 block">{industry.icon}</span>
-                    <h3 className="text-sm font-semibold mb-1">{industry.title}</h3>
+                  <div className="bg-white/5 dark:bg-white/10 rounded-sm p-5 border border-white/10 hover:border-chess-bronze/30 transition-colors">
+                    <span className="text-white mb-3 block">{industry.icon}</span>
+                    <h3 className="text-sm font-semibold mb-1 text-white">{industry.title}</h3>
                     <p className="text-xs text-white/50">{industry.desc}</p>
                   </div>
                 </motion.div>
@@ -141,15 +141,15 @@ export default function B2B() {
         </section>
 
         {/* Quote form */}
-        <section id="quote-form" className="py-16 md:py-20">
+        <section id="quote-form" className="py-16 md:py-20 bg-chess-offwhite dark:bg-chess-charcoal">
           <div className="container">
             <div className="grid lg:grid-cols-2 gap-12">
               <motion.div {...fadeUp}>
                 <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-chess-bronze mb-2 block">Get Started</span>
-                <h2 className="font-display text-2xl md:text-3xl font-semibold text-chess-charcoal mb-4">
+                <h2 className="font-display text-2xl md:text-3xl font-semibold text-chess-charcoal dark:text-white mb-4">
                   Request a Commercial Quote
                 </h2>
-                <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-sm text-muted-foreground dark:text-white/60 mb-8 leading-relaxed">
                   Tell us about your project and our commercial team will prepare a customized proposal within 24 hours. Volume pricing, custom specifications, and staged delivery options available.
                 </p>
 
@@ -160,53 +160,53 @@ export default function B2B() {
                     { icon: <CheckCircle2 className="w-4 h-4" />, text: "Net 30/60/90 payment terms available" },
                     { icon: <CheckCircle2 className="w-4 h-4" />, text: "Complete project documentation and submittals" },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-sm text-chess-graphite">
-                      <span className="text-chess-bronze">{item.icon}</span>
+                    <div key={i} className="flex items-center gap-3 text-sm text-chess-graphite dark:text-white/70">
+                      <span className="text-chess-bronze dark:text-white">{item.icon}</span>
                       {item.text}
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-8 p-4 bg-chess-cream rounded-sm">
-                  <p className="text-sm font-medium text-chess-charcoal mb-2">Prefer to speak directly?</p>
+                <div className="mt-8 p-4 bg-chess-cream dark:bg-white/5 rounded-sm border dark:border-white/5">
+                  <p className="text-sm font-medium text-chess-charcoal dark:text-white mb-2">Prefer to speak directly?</p>
                   <div className="flex flex-col gap-1.5">
-                    <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Phone className="w-3.5 h-3.5 text-chess-bronze" /> 1-800-CHESS ext. 200
+                    <span className="flex items-center gap-2 text-sm text-muted-foreground dark:text-white/40">
+                      <Phone className="w-3.5 h-3.5 text-chess-bronze dark:text-white" /> 1-800-CHESS ext. 200
                     </span>
-                    <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Mail className="w-3.5 h-3.5 text-chess-bronze" /> commercial@chessproducts.ca
+                    <span className="flex items-center gap-2 text-sm text-muted-foreground dark:text-white/40">
+                      <Mail className="w-3.5 h-3.5 text-chess-bronze dark:text-white" /> commercial@chessproducts.ca
                     </span>
                   </div>
                 </div>
               </motion.div>
 
               <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.2 }}>
-                <form onSubmit={handleSubmit} className="bg-white rounded-sm border border-border/50 p-6 md:p-8">
+                <form onSubmit={handleSubmit} className="bg-white dark:bg-chess-charcoal/80 rounded-sm border border-border/50 dark:border-white/10 p-6 md:p-8 shadow-sm">
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Company Name *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Company Name *</label>
                       <input type="text" required value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Contact Name *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Contact Name *</label>
                       <input type="text" required value={formData.contact} onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Email *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Email *</label>
                       <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Phone</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Phone</label>
                       <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze" />
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors" />
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Project Type *</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Project Type *</label>
                       <select required value={formData.projectType} onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze bg-white">
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors">
                         <option value="">Select type</option>
                         <option value="multi-residential">Multi-Residential</option>
                         <option value="hospitality">Hospitality</option>
@@ -216,10 +216,10 @@ export default function B2B() {
                         <option value="other">Other</option>
                       </select>
                     </div>
-                    <div>
-                      <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Estimated Units</label>
+                    <div className="space-y-1.5">
+                      <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Estimated Units</label>
                       <select value={formData.units} onChange={(e) => setFormData({ ...formData, units: e.target.value })}
-                        className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze bg-white">
+                        className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors">
                         <option value="">Select range</option>
                         <option value="1-10">1–10 units</option>
                         <option value="10-50">10–50 units</option>
@@ -229,10 +229,10 @@ export default function B2B() {
                       </select>
                     </div>
                   </div>
-                  <div className="mt-4">
-                    <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Project Timeline</label>
+                  <div className="mt-4 space-y-1.5">
+                    <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Project Timeline</label>
                     <select value={formData.timeline} onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                      className="w-full h-10 px-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze bg-white">
+                      className="w-full h-10 px-3 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze transition-colors">
                       <option value="">Select timeline</option>
                       <option value="immediate">Immediate (within 30 days)</option>
                       <option value="1-3months">1–3 months</option>
@@ -241,16 +241,16 @@ export default function B2B() {
                       <option value="planning">Planning phase</option>
                     </select>
                   </div>
-                  <div className="mt-4">
-                    <label className="text-xs font-medium text-chess-charcoal mb-1.5 block">Project Details</label>
+                  <div className="mt-4 space-y-1.5">
+                    <label className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite block">Project Details</label>
                     <textarea rows={4} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your project requirements, product categories of interest, and any custom specifications needed..."
-                      className="w-full px-3 py-2.5 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze resize-none" />
+                      placeholder="Tell us about your project requirements..."
+                      className="w-full px-3 py-2.5 text-sm border border-border dark:border-white/10 bg-white dark:bg-chess-charcoal/50 text-chess-charcoal dark:text-white rounded-sm focus:outline-none focus:border-chess-bronze resize-none transition-colors" />
                   </div>
-                  <button type="submit" className="w-full h-11 mt-5 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+                  <button type="submit" className="w-full h-11 mt-5 bronze-gradient-black dark:bronze-gradient text-white dark:text-chess-charcoal text-sm font-semibold rounded-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
                     Submit Quote Request <ArrowRight className="w-4 h-4" />
                   </button>
-                  <p className="text-[10px] text-center text-muted-foreground mt-3">
+                  <p className="text-[10px] text-center text-muted-foreground dark:text-white/40 mt-3">
                     We respond to all commercial inquiries within 24 business hours.
                   </p>
                 </form>

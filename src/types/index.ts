@@ -183,14 +183,14 @@ export interface ApiResponse<T> {
 export const HERO_IMAGES = {
   kitchen: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663232530149/gvLuXujCnAVHyRyN.jpg",
   living: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663232530149/GuFDnPbeEhsMwVEN.jpg",
-  bathroom: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663232530149/ghrhZhoLDNkYpAXf.jpg",
+  bathroom: "https://images.pexels.com/photos/12124656/pexels-photo-12124656.jpeg",
   commercial: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663232530149/sdPYRGfjLcjHTsWv.jpg",
   outdoor: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663232530149/csHwksbAOBOUFSIH.jpg",
 };
 
 export const LOGO = {
   dark: "/chess_logo.png",
-  white: "/chess_logo.png",
+  white: "/chess_logo-light.png",
   // dark: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663232530149/FApXNnzqFWwiFOuD.png",
   // white: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663232530149/aoUCKPDFFgkguxbf.png",
 };

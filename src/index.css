@@ -44,23 +44,22 @@
   --color-chess-charcoal: oklch(0% 0 0);
   --color-chess-graphite: oklch(0.33 0.01 250);
   --color-chess-offwhite: oklch(99.115% 0.00423 15.765);
-  --color-chess-bronze:  #000000;
-  --color-chess-success:  #000000;
+  --color-chess-bronze: #000000;
+  --color-chess-success: #000000;
   --color-chess-warning: oklch(0.72 0.12 85);
   --color-chess-error: #000000;
   --color-chess-cream: oklch(0.95 0.008 80);
   --font-display: "Font Awesome 6 Free", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
-/* h1{
-  color: #fffbfb        #0000000;
-} */
+
 :root {
   --radius: 0.5rem;
+  /* Light Mode Colors */
   --primary: oklch(0% 0 0);
   --primary-foreground: oklch(99.115% 0.00423 15.765);
-  --background: oklch(99.115% 0.00423 15.765);
-  --foreground: oklch(0% 0 0);
+  --background: #fffbfb;
+  --foreground: #000000;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0% 0 0);
   --popover: oklch(1 0 0);
@@ -75,7 +74,7 @@
   --destructive-foreground: oklch(99.115% 0.00423 15.765);
   --border: oklch(0.88 0.005 80);
   --input: oklch(0.88 0.005 80);
-  --ring:  #000000;
+  --ring: #000000;
   --chart-1: oklch(73.206% 0.09159 82.283);
   --chart-2: oklch(0.52 0.1 150);
   --chart-3: oklch(0.33 0.01 250);
@@ -91,6 +90,49 @@
   --sidebar-ring: oklch(73.206% 0.09159 82.283);
 }
 
+/* Dark Mode Colors */
+.dark {
+  --primary: #fffbfb;
+  --primary-foreground: #000000;
+  --background: #000000;
+  --foreground: #fffbfb;
+  --card: #0a0a0a;
+  --card-foreground: #fffbfb;
+  --popover: #0a0a0a;
+  --popover-foreground: #fffbfb;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #e5e5e5;
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --accent: #fffbfb;
+  --accent-foreground: #000000;
+  --destructive: oklch(0.48 0.15 25);
+  --destructive-foreground: #fffbfb;
+  --border: #262626;
+  --input: #262626;
+  --ring: #fffbfb;
+  --chart-1: #fffbfb;
+  --chart-2: #a3a3a3;
+  --chart-3: #737373;
+  --chart-4: #525252;
+  --chart-5: #404040;
+  --sidebar: #000000;
+  --sidebar-foreground: #fffbfb;
+  --sidebar-primary: #fffbfb;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #fffbfb;
+  --sidebar-border: #262626;
+  --sidebar-ring: #fffbfb;
+  
+  /* Override CHESS colors for dark mode */
+  --color-chess-offwhite: #000000;
+  --color-chess-charcoal: #fffbfb;
+  --color-chess-graphite: #e5e5e5;
+  --color-chess-cream: #1a1a1a;
+  --color-chess-bronze: #fffbfb;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -98,6 +140,7 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -157,12 +200,21 @@
     opacity: 0.06;
   }
 
-  /* Bronze gradient for CTAs */
+  /* Bronze gradient for CTAs - adapts to theme */
   .bronze-gradient {
     background: linear-gradient(135deg, #fffbfb 0%, #e0d9d9 50%, #fffbfb 100%);
   }
-   .bronze-gradient-black {
+  
+  .dark .bronze-gradient {
+    background: linear-gradient(135deg, #262626 0%, #404040 50%, #262626 100%);
+  }
+  
+  .bronze-gradient-black {
     background: linear-gradient(135deg, #000000 0%, #312f2f 50%, #000000 100%);
+  }
+  
+  .dark .bronze-gradient-black {
+    background: linear-gradient(135deg, #fffbfb 0%, #e0d9d9 50%, #fffbfb 100%);
   }
 
   /* Subtle card hover lift */
@@ -173,6 +225,10 @@
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(31, 35, 38, 0.12);
   }
+  
+  .dark .card-hover:hover {
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.1);
+  }
 }
 
 /* Smooth scrolling */
@@ -180,17 +236,26 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - adapts to theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #F6F4F1;
 }
+.dark ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
 ::-webkit-scrollbar-thumb {
   background: #000000;
   border-radius: 4px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: #fffbfb;
+}
 ::-webkit-scrollbar-thumb:hover {
   background: #444242;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #e5e5e5;
 }

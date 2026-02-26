@@ -100,6 +100,7 @@
 /*
  * CHESS Wishlist Page — Scandinavian Warmth + Swiss Precision
  * Now fetches product data from the backend API.
+ * Added Dark Mode Support.
  */
 import { Link } from "wouter";
 import { Heart, ChevronRight, ArrowRight, Loader2 } from "lucide-react";
@@ -112,37 +113,46 @@ export default function Wishlist() {
   const { wishlistProducts, loading, wishlistCount } = useWishlist();
 
   return (
-    <div className="min-h-screen flex flex-col bg-chess-offwhite">
+    <div className="min-h-screen flex flex-col bg-chess-offwhite dark:bg-zinc-950 transition-colors duration-300">
       <Header />
+      
       <main className="flex-1">
-        <div className="bg-white border-b border-border">
+        {/* Breadcrumbs Section */}
+        <div className="bg-white dark:bg-zinc-900 border-b border-border dark:border-zinc-800 transition-colors">
           <div className="container py-3">
             <nav className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Link href="/" className="hover:text-chess-bronze transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
-              <span className="text-chess-charcoal font-medium">Wishlist</span>
+              <span className="text-chess-charcoal dark:text-zinc-300 font-medium">Wishlist</span>
             </nav>
           </div>
         </div>
 
         <div className="container py-10">
-          <h1 className="font-display text-2xl font-semibold text-chess-charcoal mb-2">My Wishlist</h1>
-          <p className="text-sm text-muted-foreground mb-8">{wishlistCount} items saved</p>
+          <header className="mb-8">
+            <h1 className="font-display text-2xl font-semibold text-chess-charcoal dark:text-zinc-100 mb-2">My Wishlist</h1>
+            <p className="text-sm text-muted-foreground">{wishlistCount} items saved</p>
+          </header>
 
           {loading ? (
             <div className="flex items-center justify-center py-20">
               <Loader2 className="w-8 h-8 animate-spin text-chess-bronze" />
             </div>
           ) : wishlistProducts.length === 0 ? (
+            /* Empty State */
             <div className="text-center py-20">
-              <Heart className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-              <h2 className="font-display text-xl font-semibold text-chess-charcoal mb-2">Your wishlist is empty</h2>
+              <div className="relative inline-block mb-4">
+                <Heart className="w-16 h-16 text-muted-foreground/30 mx-auto" />
+                <Heart className="w-8 h-8 text-muted-foreground absolute inset-0 m-auto" />
+              </div>
+              <h2 className="font-display text-xl font-semibold text-chess-charcoal dark:text-zinc-100 mb-2">Your wishlist is empty</h2>
               <p className="text-muted-foreground mb-6">Save items you love for later.</p>
-              <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 bronze-gradient-black text-white text-sm font-semibold rounded-sm">
+              <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 bg-chess-charcoal dark:bg-white text-white dark:text-chess-charcoal   text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity">
                 Start Shopping <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           ) : (
+            /* Product Grid */
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
               {wishlistProducts.map((product, i) => (
                 <ProductCard key={product._id || product.id} product={product} index={i} />
@@ -151,6 +161,7 @@ export default function Wishlist() {
           )}
         </div>
       </main>
+
       <Footer />
     </div>
   );

@@ -171,6 +171,9 @@
  * Psychological triggers: urgency badges, social proof (reviews), savings display.
  * Uses WishlistContext for wishlist management.
  */
+/*
+ * CHESS Product Card — Scandinavian Warmth + Swiss Precision
+ */
 import { useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
@@ -227,9 +230,10 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       transition={{ duration: 0.4, delay: index * 0.05 }}
     >
       <Link href={`/product/${productId}`}>
-        <div className="group bg-white rounded-sm border border-border/50 overflow-hidden card-hover relative">
-          {/* Image container — golden ratio ~1.618:1 */}
-          <div className="relative aspect-[4/3] overflow-hidden bg-chess-cream">
+        <div className="group bg-white dark:bg-black/90 rounded-sm border border-border/50 dark:border-white/10 overflow-hidden card-hover relative transition-colors duration-300">
+          
+          {/* Image container */}
+          <div className="relative aspect-[4/3] overflow-hidden bg-chess-cream dark:bg-white/5">
             <img
               src={product.image}
               alt={product.name}
@@ -238,13 +242,13 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               loading="lazy"
             />
             {!imageLoaded && (
-              <div className="absolute inset-0 bg-chess-cream animate-pulse" />
+              <div className="absolute inset-0 bg-chess-cream dark:bg-white/5 animate-pulse" />
             )}
 
             {/* Badge */}
             {product.badge && (
               <span className="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider
-                             bg-chess-charcoal text-chess-offwhite rounded-sm">
+                               bg-chess-charcoal dark:bg-chess-bronze text-chess-offwhite rounded-sm z-10">
                 {product.badge}
               </span>
             )}
@@ -252,18 +256,18 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             {/* Savings badge */}
             {savings > 0 && (
               <span className="absolute top-3 right-3 px-2 py-1 text-[10px] font-bold
-                             bg-chess-error text-white rounded-sm">
+                               bg-chess-error text-white rounded-sm z-10">
                 -{savings}%
               </span>
             )}
 
             {/* Quick actions overlay */}
-            <div className="absolute inset-0 bg-chess-charcoal/0 group-hover:bg-chess-charcoal/10 transition-all duration-300">
+            <div className="absolute inset-0 bg-chess-charcoal/0 group-hover:bg-chess-charcoal/20 dark:group-hover:bg-black/40 transition-all duration-300">
               <div className="absolute bottom-3 left-3 right-3 flex gap-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                 <button
                   onClick={handleAddToCart}
-                  className="flex-1 h-9 bg-chess-charcoal text-white text-xs font-semibold rounded-sm
-                           flex items-center justify-center gap-1.5 hover:bg-chess-bronze transition-colors"
+                  className="flex-1 h-9 bg-chess-charcoal dark:bg-white text-white dark:text-chess-charcoal text-xs font-semibold rounded-sm
+                             flex items-center justify-center gap-1.5 hover:bg-chess-bronze  dark:hover:bg-white transition-colors"
                 >
                   <ShoppingCart className="w-3.5 h-3.5" />
                   Add to Cart
@@ -271,7 +275,10 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                 <button
                   onClick={handleToggleWishlist}
                   className={`w-9 h-9 rounded-sm flex items-center justify-center transition-colors
-                    ${wishlisted ? "bg-chess-bronze text-white" : "bg-white text-chess-charcoal hover:bg-chess-bronze hover:text-white"}`}
+                    ${wishlisted 
+                      ? "bg-chess-bronze text-white" 
+                      : "bg-white dark:bg-chess-charcoal text-chess-charcoal dark:text-white hover:bg-chess-bronze dark:hover:bg-chess-bronze hover:text-white"
+                    }`}
                 >
                   <Heart className={`w-3.5 h-3.5 ${wishlisted ? "fill-current" : ""}`} />
                 </button>
@@ -287,7 +294,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             </span>
 
             {/* Product name */}
-            <h3 className="font-sans text-sm font-medium leading-snug text-chess-charcoal mb-2 line-clamp-2 group-hover:text-chess-bronze transition-colors">
+            <h3 className="font-sans text-sm font-medium leading-snug text-chess-charcoal dark:text-white mb-2 line-clamp-2 group-hover:text-chess-bronze transition-colors">
               {product.name}
             </h3>
 
@@ -297,40 +304,37 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-3 h-3 ${i < Math.floor(product.rating) ? "fill-chess-bronze text-chess-bronze" : "text-border"}`}
+                    className={`w-3 h-3 ${i < Math.floor(product.rating) ? "fill-chess-bronze text-chess-bronze" : "text-border dark:text-white/80"}`}
                   />
                 ))}
               </div>
-              <span className="text-xs text-muted-foreground">
+              <span className="text-xs text-muted-foreground dark:text-white/70">
                 {product.rating} ({product.reviewCount})
               </span>
             </div>
 
             {/* Price */}
             <div className="flex items-baseline gap-2">
-              <span className="text-lg font-semibold text-chess-charcoal">
+              <span className="text-lg font-semibold text-chess-charcoal dark:text-white">
                 ${product.price.toLocaleString(undefined, { minimumFractionDigits: product.price < 100 ? 2 : 0 })}
               </span>
               {product.originalPrice && (
-                <span className="text-sm text-muted-foreground line-through">
+                <span className="text-sm text-muted-foreground dark:text-white/70 line-through font-light">
                   ${product.originalPrice.toLocaleString()}
                 </span>
-              )}
-              {product.price < 100 && (
-                <span className="text-[10px] text-muted-foreground">/sq.ft.</span>
               )}
             </div>
 
             {/* Social proof / urgency */}
-            <div className="mt-2.5 flex items-center gap-1.5 text-[10px] text-chess-success font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-chess-success animate-pulse" />
+            <div className="mt-2.5 flex items-center gap-1.5 text-[10px] text-chess-success dark:text-chess-success/90 font-medium">
+              <span className={`w-1.5 h-1.5 rounded-full bg-chess-success ${product.inStock ? 'animate-pulse' : ''}`} />
               {product.inStock ? "In Stock" : "Made to Order"} — {product.leadTime}
             </div>
 
             {/* Commercial badge */}
             {product.commercial && (
               <span className="inline-block mt-2 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider
-                             border border-chess-bronze/30 text-chess-bronze rounded-sm">
+                               border border-chess-bronze/30 text-chess-bronze rounded-sm">
                 Commercial Grade
               </span>
             )}

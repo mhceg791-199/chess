@@ -28,7 +28,7 @@ export default function Footer() {
             />
             <button
               type="submit"
-              className="h-11 px-6 bronze-gradient text-chess-charcoal text-sm font-semibold rounded-r-sm
+              className="h-11 px-6 bronze-gradient text-chess-charcoal dark:text-white text-sm font-semibold rounded-r-sm
                          hover:opacity-90 transition-opacity whitespace-nowrap"
             >
               Subscribe
@@ -75,7 +75,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {["Appliances", "Lighting", "Plumbing", "HVAC", "Electrical", "Building Materials", "Outdoor"].map((item) => (
                 <li key={item}>
-                  <Link href={`/category/${item.toLowerCase().replace(/ /g, "-")}`} className="text-sm text-white/60 hover:text-chess-bronze transition-colors">
+                  <Link href={`/category/${item.toLowerCase().replace(/ /g, "-")}`} className="text-sm text-white/60 hover:text-white/90 transition-colors">
                     {item}
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ export default function Footer() {
                 { label: "Bulk Orders", href: "/b2b" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-white/60 hover:text-chess-bronze transition-colors">
+                  <Link href={item.href} className="text-sm text-white/60 hover:text-white/90 transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -116,7 +116,7 @@ export default function Footer() {
                 { label: "Product Registration", href: "/service" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-white/60 hover:text-chess-bronze transition-colors">
+                  <Link href={item.href} className="text-sm text-white/60 hover:text-white/90 transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -129,19 +129,19 @@ export default function Footer() {
             <h4 className="text-sm font-semibold mb-4 text-white">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-white/60">
-                <Phone className="w-4 h-4 shrink-0 mt-0.5 text-chess-bronze" />
+                <Phone className="w-4 h-4 shrink-0 mt-0.5 text-white" />
                 <span>1-800-CHESS (24357)<br />Mon–Fri 8am–8pm EST</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-white/60">
-                <Mail className="w-4 h-4 shrink-0 mt-0.5 text-chess-bronze" />
+                <Mail className="w-4 h-4 shrink-0 mt-0.5 text-white" />
                 <span>support@chessproducts.ca</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-white/60">
-                <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-chess-bronze" />
+                <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-white" />
                 <span>Toronto, Ontario, Canada</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-white/60">
-                <Clock className="w-4 h-4 shrink-0 mt-0.5 text-chess-bronze" />
+                <Clock className="w-4 h-4 shrink-0 mt-0.5 text-white" />
                 <span>Showroom: Mon–Sat 9am–6pm</span>
               </li>
             </ul>

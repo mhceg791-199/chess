@@ -61,29 +61,29 @@ export default function CartPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-chess-offwhite">
+    <div className="min-h-screen flex flex-col bg-chess-offwhite dark:bg-zinc-950 transition-colors duration-300">
       <Header />
       <main className="flex-1">
         {/* Breadcrumb */}
-        <div className="bg-white border-b border-border">
+        <div className="bg-white dark:bg-zinc-900 border-b border-border dark:border-zinc-800">
           <div className="container py-3">
             <nav className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Link href="/" className="hover:text-chess-bronze transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
-              <span className="font-medium">Shopping Cart</span>
+              <span className="font-medium dark:text-zinc-300">Shopping Cart</span>
             </nav>
           </div>
         </div>
 
         <div className="container py-8 md:py-12">
-          <h1 className="font-display text-2xl font-semibold text-chess-charcoal mb-8">
+          <h1 className="font-display text-2xl font-semibold text-chess-charcoal dark:text-zinc-100 mb-8">
             Shopping Cart {itemCount > 0 && <span className="text-muted-foreground text-lg">({itemCount} items)</span>}
           </h1>
 
           {items.length === 0 ? (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
               <ShoppingBag className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-              <h2 className="font-display text-xl font-semibold text-chess-charcoal mb-2">Your cart is empty</h2>
+              <h2 className="font-display text-xl font-semibold text-chess-charcoal dark:text-zinc-200 mb-2">Your cart is empty</h2>
               <p className="text-muted-foreground mb-6">Browse our products and add items to your cart.</p>
               <Link href="/category/all" className="inline-flex items-center gap-2 px-6 py-3 bronze-gradient-black text-white text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity">
                 Browse Products <ArrowRight className="w-4 h-4" />
@@ -100,46 +100,46 @@ export default function CartPage() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="bg-white rounded-sm border border-border/50 p-4 md:p-5"
+                    className="bg-white dark:bg-zinc-900 rounded-sm border border-border/50 dark:border-zinc-800 p-4 md:p-5"
                   >
                     <div className="flex gap-4">
                       <Link href={`/product/${item.productId}`}>
                         <img
                           src={item.image}
                           alt={item.name}
-                          className="w-20 h-20 md:w-24 md:h-24 object-cover rounded-sm shrink-0"
+                          className="w-20 h-20 md:w-24 md:h-24 object-cover rounded-sm shrink-0 dark:brightness-90"
                         />
                       </Link>
                       <div className="flex-1">
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <Link href={`/product/${item.productId}`}>
-                              <h3 className="text-sm font-semibold text-chess-charcoal hover:text-chess-bronze transition-colors">
+                              <h3 className="text-sm font-semibold text-chess-charcoal dark:text-zinc-100 hover:text-chess-bronze transition-colors">
                                 {item.name}
                               </h3>
                             </Link>
-                            <p className="text-xs text-muted-foreground mt-0.5">SKU: {item.sku}</p>
+                            <p className="text-xs text-muted-foreground mt-0.5 uppercase">SKU: {item.sku}</p>
                           </div>
-                          <p className="text-sm font-semibold text-chess-charcoal whitespace-nowrap">
+                          <p className="text-sm font-semibold text-chess-charcoal dark:text-zinc-100 whitespace-nowrap">
                             ${(item.price * item.quantity).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                           </p>
                         </div>
 
                         <div className="flex items-center justify-between mt-4">
-                          <div className="flex items-center border border-border rounded-sm">
+                          <div className="flex items-center border border-border dark:border-zinc-700 rounded-sm">
                             <button
                               onClick={() => updateQuantity(item.productId, Math.max(1, item.quantity - 1))}
-                              className="w-8 h-8 flex items-center justify-center hover:bg-chess-cream transition-colors"
+                              className="w-8 h-8 flex items-center justify-center hover:bg-chess-cream dark:hover:bg-zinc-800 transition-colors disabled:opacity-30"
                               disabled={item.quantity <= 1}
                             >
-                              <Minus className="w-3 h-3" />
+                              <Minus className="w-3 h-3 dark:text-zinc-400" />
                             </button>
-                            <span className="w-10 text-center text-sm font-medium">{item.quantity}</span>
+                            <span className="w-10 text-center text-sm font-medium dark:text-zinc-200">{item.quantity}</span>
                             <button
                               onClick={() => updateQuantity(item.productId, item.quantity + 1)}
-                              className="w-8 h-8 flex items-center justify-center hover:bg-chess-cream transition-colors"
+                              className="w-8 h-8 flex items-center justify-center hover:bg-chess-cream dark:hover:bg-zinc-800 transition-colors"
                             >
-                              <Plus className="w-3 h-3" />
+                              <Plus className="w-3 h-3 dark:text-zinc-400" />
                             </button>
                           </div>
                           <button
@@ -161,7 +161,7 @@ export default function CartPage() {
                   >
                     Clear Cart
                   </button>
-                  <Link href="/category/all" className="text-xs text-chess-bronze hover:underline">
+                  <Link href="/category/all" className="text-xs text-chess-bronze hover:underline font-medium">
                     Continue Shopping →
                   </Link>
                 </div>
@@ -169,25 +169,25 @@ export default function CartPage() {
 
               {/* Order Summary */}
               <div className="lg:col-span-1">
-                <div className="bg-white rounded-sm border border-border/50 p-6 sticky top-24">
-                  <h2 className="font-display text-lg font-semibold text-chess-charcoal mb-5">Order Summary</h2>
+                <div className="bg-white dark:bg-zinc-900 rounded-sm border border-border/50 dark:border-zinc-800 p-6 sticky top-24 shadow-sm">
+                  <h2 className="font-display text-lg font-semibold text-chess-charcoal dark:text-zinc-100 mb-5">Order Summary</h2>
 
                   <div className="space-y-3 mb-5">
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Subtotal ({itemCount} items)</span>
-                      <span className="text-chess-charcoal">${subtotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
+                      <span className="text-chess-charcoal dark:text-zinc-200">${subtotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Shipping</span>
-                      <span className={SHIPPING_COST === 0 ? "text-green-600 font-medium" : "text-chess-charcoal"}>
+                      <span className={SHIPPING_COST === 0 ? "text-green-600 dark:text-green-500 font-medium" : "text-chess-charcoal dark:text-zinc-200"}>
                         {SHIPPING_COST === 0 ? "Free" : `$${SHIPPING_COST.toFixed(2)}`}
                       </span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-muted-foreground">Tax (HST 13%)</span>
-                      <span className="text-chess-charcoal">${tax.toFixed(2)}</span>
+                      <span className="text-chess-charcoal dark:text-zinc-200">${tax.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between text-base font-semibold text-chess-charcoal pt-3 border-t border-border">
+                    <div className="flex justify-between text-base font-semibold text-chess-charcoal dark:text-zinc-100 pt-3 border-t border-border dark:border-zinc-800">
                       <span>Total</span>
                       <span>${total.toLocaleString(undefined, { minimumFractionDigits: 2 })} CAD</span>
                     </div>
@@ -202,22 +202,22 @@ export default function CartPage() {
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
                         placeholder="Promo code"
-                        className="w-full h-9 pl-9 pr-3 text-sm border border-border rounded-sm focus:outline-none focus:border-chess-bronze"
+                        className="w-full h-9 pl-9 pr-3 text-sm bg-transparent border border-border dark:border-zinc-700 rounded-sm focus:outline-none focus:border-chess-bronze dark:text-zinc-200"
                       />
                     </div>
                     <button
                       onClick={() => toast("Promo codes are applied at Stripe checkout")}
-                      className="px-3 h-9 text-xs font-medium border border-border rounded-sm hover:bg-chess-cream transition-colors"
+                      className="px-3 h-9 text-xs font-medium border border-border dark:border-zinc-700 rounded-sm hover:bg-chess-cream dark:hover:bg-zinc-800 dark:text-zinc-300 transition-colors"
                     >
                       Apply
                     </button>
                   </div>
 
                   {subtotal < FREE_SHIPPING_THRESHOLD && (
-                    <div className="bg-chess-cream/50 rounded-sm p-3 mb-5">
-                      <p className="text-xs text-muted-foreground">
-                        <Truck className="w-3.5 h-3.5 inline mr-1" />
-                        Add <strong className="text-chess-charcoal">${(FREE_SHIPPING_THRESHOLD - subtotal).toFixed(2)}</strong> more for free shipping
+                    <div className="bg-chess-cream/50 dark:bg-chess-bronze/10 rounded-sm p-3 mb-5 border border-chess-bronze/20">
+                      <p className="text-xs text-muted-foreground dark:text-zinc-400">
+                        <Truck className="w-3.5 h-3.5 inline mr-1 text-chess-bronze" />
+                        Add <strong className="text-chess-charcoal dark:text-zinc-200">${(FREE_SHIPPING_THRESHOLD - subtotal).toFixed(2)}</strong> more for free shipping
                       </p>
                     </div>
                   )}
@@ -225,7 +225,7 @@ export default function CartPage() {
                   <button
                     onClick={handleCheckout}
                     disabled={checkoutLoading || items.length === 0}
-                    className="w-full flex items-center justify-center gap-2 py-3 bronze-gradient-black text-white text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+                    className="w-full flex items-center justify-center gap-2 py-3 bg-chess-charcoal dark:bg-white text-white dark:text-chess-charcoal text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
                   >
                     {checkoutLoading ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -236,7 +236,7 @@ export default function CartPage() {
 
                   <div className="flex items-center justify-center gap-1 mt-3">
                     <Shield className="w-3 h-3 text-muted-foreground" />
-                    <span className="text-[10px] text-muted-foreground">Secure checkout powered by Stripe</span>
+                    <span className="text-[10px] text-muted-foreground uppercase tracking-tight">Secure checkout powered by Stripe</span>
                   </div>
                 </div>
               </div>
