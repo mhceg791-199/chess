@@ -42,7 +42,7 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
 
   if (authLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-chess-offwhite">
+      <div className="min-h-screen flex items-center justify-center bg-chess-offwhite dark:bg-chess-charcoal transition-colors">
         <Loader2 className="w-8 h-8 animate-spin text-chess-bronze" />
       </div>
     );
@@ -61,15 +61,15 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
   }
 
   const sidebar = (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full bg-white dark:bg-chess-charcoal transition-colors">
       {/* Logo */}
-      <div className="p-4 border-b border-border/50">
+      <div className="p-4 border-b border-border/50 dark:border-white/10">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-sm bronze-gradient-black flex items-center justify-center">
-            <span className="text-white font-display font-bold text-sm">C</span>
+            <span className="text-white dark:text-chess-charcoal font-display font-bold text-sm">C</span>
           </div>
           {sidebarOpen && (
-            <span className="font-display font-semibold text-chess-charcoal text-sm">CHESS Admin</span>
+            <span className="font-display font-semibold text-chess-charcoal dark:text-chess-offwhite text-sm">CHESS Admin</span>
           )}
         </Link>
       </div>
@@ -85,8 +85,8 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
               href={item.href}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-sm text-sm font-medium transition-colors
                 ${active
-                  ? "bg-chess-bronze/10 text-chess-bronze"
-                  : "text-muted-foreground hover:bg-chess-cream hover:text-chess-charcoal"
+                  ? "bg-chess-bronze/10 text-chess-bronze dark:text-white/90"
+                  : "text-muted-foreground hover:bg-chess-cream dark:hover:bg-white/5 hover:text-chess-charcoal dark:hover:text-chess-offwhite"
                 }`}
               onClick={() => setMobileOpen(false)}
             >
@@ -98,16 +98,16 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
       </nav>
 
       {/* User / Logout */}
-      <div className="p-3 border-t border-border/50">
+      <div className="p-3 border-t border-border/50 dark:border-white/10">
         {sidebarOpen && (
           <div className="px-3 py-2 mb-2">
-            <p className="text-xs font-medium text-chess-charcoal truncate">{user?.name}</p>
-            <p className="text-[10px] text-muted-foreground truncate">{user?.email}</p>
+            <p className="text-xs font-medium text-chess-charcoal dark:text-chess-offwhite truncate">{user?.name}</p>
+            <p className="text-[10px] text-muted-foreground dark:text-gray-400 truncate">{user?.email}</p>
           </div>
         )}
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 px-3 py-2.5 w-full rounded-sm text-sm font-medium text-muted-foreground hover:bg-red-50 hover:text-red-600 transition-colors"
+          className="flex items-center gap-3 px-3 py-2.5 w-full rounded-sm text-sm font-medium text-muted-foreground hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400 transition-colors"
         >
           <LogOut className="w-4.5 h-4.5 shrink-0" />
           {sidebarOpen && <span>Logout</span>}
@@ -117,17 +117,16 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
   );
 
   return (
-    <div className="min-h-screen flex bg-chess-offwhite">
+    <div className="min-h-screen flex bg-chess-offwhite dark:bg-black transition-colors">
       {/* Desktop Sidebar */}
       <aside
-        className={`hidden lg:flex flex-col bg-white border-r border-border/50 transition-all duration-300 shrink-0
+        className={`hidden lg:flex flex-col bg-white dark:bg-chess-charcoal border-r border-border/50 dark:border-white/10 transition-all duration-300 shrink-0 relative
           ${sidebarOpen ? "w-56" : "w-16"}`}
       >
         {sidebar}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="absolute top-4 -right-3 w-6 h-6 bg-white border border-border rounded-full flex items-center justify-center shadow-sm hover:bg-chess-cream transition-colors z-10"
-          style={{ left: sidebarOpen ? "calc(14rem - 0.75rem)" : "calc(4rem - 0.75rem)" }}
+          className="absolute top-4 -right-3 w-6 h-6 bg-white dark:bg-chess-charcoal border border-border dark:border-white/20 rounded-full flex items-center justify-center shadow-sm hover:bg-chess-cream dark:hover:bg-white/10 transition-colors z-10 text-chess-charcoal dark:text-chess-offwhite"
         >
           {sidebarOpen ? <ChevronLeft className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
         </button>
@@ -136,8 +135,8 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
       {/* Mobile Overlay */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
-          <aside className="absolute left-0 top-0 bottom-0 w-56 bg-white shadow-xl">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
+          <aside className="absolute left-0 top-0 bottom-0 w-56 bg-white dark:bg-chess-charcoal shadow-xl">
             {sidebar}
           </aside>
         </div>
@@ -146,22 +145,22 @@ export default function AdminLayout({ children, title, subtitle }: AdminLayoutPr
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Top Bar */}
-        <header className="bg-white border-b border-border/50 px-4 lg:px-6 py-3 flex items-center justify-between shrink-0">
+        <header className="bg-white dark:bg-chess-charcoal border-b border-border/50 dark:border-white/10 px-4 lg:px-6 py-3 flex items-center justify-between shrink-0 transition-colors">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-1.5 rounded-sm hover:bg-chess-cream transition-colors"
+              className="lg:hidden p-1.5 rounded-sm hover:bg-chess-cream dark:hover:bg-white/5 transition-colors"
             >
-              <Menu className="w-5 h-5 text-chess-charcoal" />
+              <Menu className="w-5 h-5 text-chess-charcoal dark:text-chess-offwhite" />
             </button>
             <div>
-              <h1 className="font-display text-lg font-semibold text-chess-charcoal">{title}</h1>
-              {subtitle && <p className="text-xs text-muted-foreground">{subtitle}</p>}
+              <h1 className="font-display text-lg font-semibold text-chess-charcoal dark:text-chess-offwhite">{title}</h1>
+              {subtitle && <p className="text-xs text-muted-foreground dark:text-gray-400">{subtitle}</p>}
             </div>
           </div>
           <Link
             href="/"
-            className="text-xs text-muted-foreground hover:text-chess-bronze transition-colors"
+            className="text-xs text-muted-foreground dark:text-gray-400 hover:text-chess-bronze dark:hover:text-white transition-colors"
           >
             ← Back to Store
           </Link>

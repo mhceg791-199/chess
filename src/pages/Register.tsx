@@ -39,34 +39,34 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-chess-offwhite px-4">
+    <div className="min-h-screen flex items-center justify-center bg-chess-offwhite dark:bg-zinc-950 px-4 transition-colors duration-300">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/">
-            <span className="font-display text-2xl font-bold text-chess-charcoal tracking-tight">
-              CHESS<span className="text-chess-bronze">.</span>
+            <span className="font-display text-2xl font-bold text-chess-charcoal dark:text-zinc-100 tracking-tight cursor-pointer">
+              CHESS<span className="text-chess-bronze dark:text-white">.</span>
             </span>
           </Link>
-          <h1 className="mt-4 font-display text-xl font-semibold text-chess-charcoal">
+          <h1 className="mt-4 font-display text-xl font-semibold text-chess-charcoal dark:text-zinc-100">
             Create your account
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 text-sm text-muted-foreground dark:text-zinc-400">
             Already have an account?{" "}
-            <Link href="/login" className="text-chess-bronze hover:underline font-medium">
+            <Link href="/login" className="text-chess-bronze hover:underline font-medium dark:text-white">
               Sign in
             </Link>
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg border border-border p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="bg-white dark:bg-zinc-900 rounded-lg border border-border dark:border-zinc-800 p-6 space-y-4 shadow-sm transition-colors">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3 rounded-sm">
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 text-sm px-4 py-3 rounded-sm">
               {error}
             </div>
           )}
 
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-chess-charcoal mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-chess-charcoal dark:text-zinc-300 mb-1">
               Full name
             </label>
             <input
@@ -75,13 +75,13 @@ export default function Register() {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-sm text-sm focus:outline-none focus:ring-2 focus:ring-chess-bronze/30 focus:border-chess-bronze"
+              className="w-full px-3 py-2 bg-transparent dark:bg-zinc-950 border border-border dark:border-zinc-800 rounded-sm text-sm text-chess-charcoal dark:text-zinc-200 placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-chess-bronze/30 focus:border-chess-bronze transition-all"
               placeholder="John Doe"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-chess-charcoal mb-1">
+            <label htmlFor="email" className="block text-sm font-medium text-chess-charcoal dark:text-zinc-300 mb-1">
               Email address
             </label>
             <input
@@ -90,13 +90,13 @@ export default function Register() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-sm text-sm focus:outline-none focus:ring-2 focus:ring-chess-bronze/30 focus:border-chess-bronze"
+              className="w-full px-3 py-2 bg-transparent dark:bg-zinc-950 border border-border dark:border-zinc-800 rounded-sm text-sm text-chess-charcoal dark:text-zinc-200 placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-chess-bronze/30 focus:border-chess-bronze transition-all"
               placeholder="you@example.com"
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-chess-charcoal mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-chess-charcoal dark:text-zinc-300 mb-1">
               Password
             </label>
             <div className="relative">
@@ -106,13 +106,13 @@ export default function Register() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 pr-10 border border-border rounded-sm text-sm focus:outline-none focus:ring-2 focus:ring-chess-bronze/30 focus:border-chess-bronze"
+                className="w-full px-3 py-2 pr-10 bg-transparent dark:bg-zinc-950 border border-border dark:border-zinc-800 rounded-sm text-sm text-chess-charcoal dark:text-zinc-200 placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-chess-bronze/30 focus:border-chess-bronze transition-all"
                 placeholder="Min. 6 characters"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-chess-charcoal"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-chess-charcoal dark:hover:text-zinc-200 transition-colors"
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
@@ -120,7 +120,7 @@ export default function Register() {
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-chess-charcoal mb-1">
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-chess-charcoal dark:text-zinc-300 mb-1">
               Confirm password
             </label>
             <input
@@ -129,7 +129,7 @@ export default function Register() {
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-border rounded-sm text-sm focus:outline-none focus:ring-2 focus:ring-chess-bronze/30 focus:border-chess-bronze"
+              className="w-full px-3 py-2 bg-transparent dark:bg-zinc-950 border border-border dark:border-zinc-800 rounded-sm text-sm text-chess-charcoal dark:text-zinc-200 placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-chess-bronze/30 focus:border-chess-bronze transition-all"
               placeholder="Repeat your password"
             />
           </div>
@@ -137,12 +137,12 @@ export default function Register() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bronze-gradient-black text-white text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bronze-gradient-black text-white dark:text-chess-charcoal dark:bg-white text-sm font-semibold rounded-sm hover:opacity-90 transition-opacity disabled:opacity-50"
           >
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Create Account <ArrowRight className="w-4 h-4" /></>}
           </button>
 
-          <p className="text-xs text-muted-foreground text-center">
+          <p className="text-xs text-muted-foreground dark:text-zinc-500 text-center">
             By creating an account, you agree to our Terms of Service and Privacy Policy.
           </p>
         </form>

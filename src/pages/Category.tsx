@@ -131,8 +131,8 @@ export default function Category() {
   const pageTitle = searchQuery
     ? `Search results for "${searchQuery}"`
     : category
-    ? category.name
-    : "All Products";
+      ? category.name
+      : "All Products";
 
   const activeFilters = [
     selectedPrice !== null ? priceRanges[selectedPrice].label : null,
@@ -141,45 +141,45 @@ export default function Category() {
   ].filter(Boolean);
 
   return (
-    <div className="min-h-screen flex flex-col bg-chess-offwhite">
+    <div className="min-h-screen flex flex-col bg-chess-offwhite dark:bg-zinc-950 transition-colors duration-300">
       <Header />
 
       <main className="flex-1">
         {/* Breadcrumb */}
-        <div className="bg-white border-b border-border">
+        <div className="bg-white dark:bg-zinc-900 border-b border-border dark:border-zinc-800 transition-colors">
           <div className="container py-3">
-            <nav className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            <nav className="flex items-center gap-1.5 text-xs text-muted-foreground dark:text-zinc-500">
               <Link href="/" className="hover:text-chess-bronze transition-colors">Home</Link>
               <ChevronRight className="w-3 h-3" />
               {category ? (
                 <>
                   <Link href="/categories" className="hover:text-chess-bronze transition-colors">Categories</Link>
                   <ChevronRight className="w-3 h-3" />
-                  <span className="text-chess-charcoal font-medium">{category.name}</span>
+                  <span className="text-chess-charcoal dark:text-zinc-200 font-medium">{category.name}</span>
                   {params.sub && (
                     <>
                       <ChevronRight className="w-3 h-3" />
-                      <span className="text-chess-charcoal font-medium capitalize">{params.sub.replace(/-/g, " ")}</span>
+                      <span className="text-chess-charcoal dark:text-zinc-200 font-medium capitalize">{params.sub.replace(/-/g, " ")}</span>
                     </>
                   )}
                 </>
               ) : (
-                <span className="text-chess-charcoal font-medium">{pageTitle}</span>
+                <span className="text-chess-charcoal dark:text-zinc-200 font-medium">{pageTitle}</span>
               )}
             </nav>
           </div>
         </div>
 
         {/* Page header */}
-        <div className="bg-white border-b border-border">
+        <div className="bg-white dark:bg-zinc-900 border-b border-border dark:border-zinc-800 transition-colors">
           <div className="container py-6 md:py-8">
-            <h1 className="font-display text-2xl md:text-3xl font-semibold text-chess-charcoal mb-1">
+            <h1 className="font-display text-2xl md:text-3xl font-semibold text-chess-charcoal dark:text-zinc-100 mb-1">
               {pageTitle}
             </h1>
             {category && (
-              <p className="text-sm text-muted-foreground">{category.description}</p>
+              <p className="text-sm text-muted-foreground dark:text-zinc-400">{category.description}</p>
             )}
-            <p className="text-xs text-muted-foreground mt-2">
+            <p className="text-xs text-muted-foreground dark:text-zinc-500 mt-2">
               {loading ? "Loading..." : `${filteredProducts.length} product${filteredProducts.length !== 1 ? "s" : ""} found`}
             </p>
           </div>
@@ -187,12 +187,14 @@ export default function Category() {
 
         {/* Subcategory pills */}
         {category && (
-          <div className="bg-white border-b border-border">
+          <div className="bg-white dark:bg-zinc-900 border-b border-border dark:border-zinc-800 transition-colors">
             <div className="container py-3 flex gap-2 overflow-x-auto scrollbar-hide">
               <Link
                 href={`/category/${category.slug}`}
                 className={`shrink-0 px-3 py-1.5 text-xs font-medium rounded-sm border transition-colors
-                  ${!params.sub ? "bg-chess-charcoal text-white border-chess-charcoal" : "bg-white text-chess-graphite border-border hover:border-chess-bronze"}`}
+                ${!params.sub
+                    ? "bg-chess-charcoal text-white border-chess-charcoal dark:bg-zinc-100 dark:text-zinc-900 dark:border-zinc-100"
+                    : "bg-white text-chess-graphite border-border hover:border-chess-bronze dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700 dark:hover:border-chess-bronze"}`}
               >
                 All {category.name}
               </Link>
@@ -201,7 +203,9 @@ export default function Category() {
                   key={sub.slug}
                   href={`/category/${category.slug}/${sub.slug}`}
                   className={`shrink-0 px-3 py-1.5 text-xs font-medium rounded-sm border transition-colors
-                    ${params.sub === sub.slug ? "bg-chess-charcoal text-white border-chess-charcoal" : "bg-white text-chess-graphite border-border hover:border-chess-bronze"}`}
+                  ${params.sub === sub.slug
+                      ? "bg-chess-charcoal text-white border-chess-charcoal dark:bg-zinc-100 dark:text-zinc-900 dark:border-zinc-100"
+                      : "bg-white text-chess-graphite border-border hover:border-chess-bronze dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700 dark:hover:border-chess-bronze"}`}
                 >
                   {sub.name} ({sub.productCount ?? sub.count ?? 0})
                 </Link>
@@ -216,7 +220,7 @@ export default function Category() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setFiltersOpen(!filtersOpen)}
-                className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium border border-border rounded-sm hover:border-chess-bronze transition-colors"
+                className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium border border-border dark:border-zinc-800 dark:text-zinc-300 rounded-sm hover:border-chess-bronze dark:hover:border-chess-bronze transition-colors"
               >
                 <SlidersHorizontal className="w-3.5 h-3.5" />
                 Filters
@@ -229,7 +233,7 @@ export default function Category() {
 
               {/* Active filter chips */}
               {activeFilters.map((filter, i) => (
-                <span key={i} className="hidden md:flex items-center gap-1 px-2 py-1 text-[10px] font-medium bg-chess-cream text-chess-charcoal rounded-sm">
+                <span key={i} className="hidden md:flex items-center gap-1 px-2 py-1 text-[10px] font-medium bg-chess-cream dark:bg-zinc-800 text-chess-charcoal dark:text-zinc-200 rounded-sm">
                   {filter}
                   <button
                     onClick={() => {
@@ -237,6 +241,7 @@ export default function Category() {
                       else if (filter === "In Stock") setInStockOnly(false);
                       else setSelectedPrice(null);
                     }}
+                    className="hover:text-chess-bronze"
                   >
                     <X className="w-3 h-3" />
                   </button>
@@ -250,27 +255,27 @@ export default function Category() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none pl-3 pr-8 py-2 text-xs font-medium border border-border rounded-sm bg-white
-                           focus:outline-none focus:border-chess-bronze cursor-pointer"
+                  className="appearance-none pl-3 pr-8 py-2 text-xs font-medium border border-border dark:border-zinc-800 rounded-sm bg-white dark:bg-zinc-900 dark:text-zinc-200
+                           focus:outline-none focus:border-chess-bronze cursor-pointer transition-colors"
                 >
                   {sortOptions.map((opt) => (
-                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    <option key={opt.value} value={opt.value} className="bg-white dark:bg-zinc-900">{opt.label}</option>
                   ))}
                 </select>
                 <ArrowUpDown className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-muted-foreground pointer-events-none" />
               </div>
 
               {/* View toggle */}
-              <div className="hidden md:flex items-center border border-border rounded-sm overflow-hidden">
+              <div className="hidden md:flex items-center border border-border dark:border-zinc-800 rounded-sm overflow-hidden">
                 <button
                   onClick={() => setGridView("grid")}
-                  className={`p-1.5 ${gridView === "grid" ? "bg-chess-charcoal text-white" : "bg-white text-muted-foreground"}`}
+                  className={`p-1.5 transition-colors ${gridView === "grid" ? "bg-chess-charcoal text-white dark:bg-zinc-100 dark:text-zinc-900" : "bg-white text-muted-foreground dark:bg-zinc-900 dark:text-zinc-500"}`}
                 >
                   <Grid3X3 className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setGridView("list")}
-                  className={`p-1.5 ${gridView === "list" ? "bg-chess-charcoal text-white" : "bg-white text-muted-foreground"}`}
+                  className={`p-1.5 transition-colors ${gridView === "list" ? "bg-chess-charcoal text-white dark:bg-zinc-100 dark:text-zinc-900" : "bg-white text-muted-foreground dark:bg-zinc-900 dark:text-zinc-500"}`}
                 >
                   <List className="w-4 h-4" />
                 </button>
@@ -291,24 +296,26 @@ export default function Category() {
                   <div className="w-60 space-y-6">
                     {/* Price filter */}
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-chess-charcoal mb-3">Price Range</h4>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-chess-charcoal dark:text-zinc-400 mb-3">Price Range</h4>
                       <div className="space-y-1.5">
                         {priceRanges.map((range, i) => {
                           const count = allProducts.filter(p => p.price >= range.min && p.price < range.max).length;
                           return (
-                          <button
-                            key={i}
-                            onClick={() => setSelectedPrice(selectedPrice === i ? null : i)}
-                            className={`flex items-center gap-2 w-full px-2 py-1.5 text-xs rounded-sm transition-colors
-                              ${selectedPrice === i ? "bg-chess-bronze/10 text-chess-bronze font-medium" : "text-chess-graphite hover:bg-chess-cream"}`}
-                          >
-                            <span className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center
-                              ${selectedPrice === i ? "border-chess-bronze bg-chess-bronze" : "border-border"}`}>
-                              {selectedPrice === i && <Check className="w-2.5 h-2.5 text-white" />}
-                            </span>
-                            {range.label}
-                            <span className="ml-auto text-[10px] text-muted-foreground">({count})</span>
-                          </button>
+                            <button
+                              key={i}
+                              onClick={() => setSelectedPrice(selectedPrice === i ? null : i)}
+                              className={`flex items-center gap-2 w-full px-2 py-1.5 text-xs rounded-sm transition-colors
+                              ${selectedPrice === i
+                                  ? "bg-chess-bronze/10 text-chess-bronze font-medium dark:bg-chess-bronze/20"
+                                  : "text-chess-graphite dark:text-zinc-400 hover:bg-chess-cream dark:hover:bg-zinc-800"}`}
+                            >
+                              <span className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center transition-colors
+                              ${selectedPrice === i ? "border-chess-bronze bg-chess-bronze" : "border-border dark:border-zinc-700"}`}>
+                                {selectedPrice === i && <Check className="w-2.5 h-2.5 text-white" />}
+                              </span>
+                              {range.label}
+                              <span className="ml-auto text-[10px] text-muted-foreground dark:text-zinc-500">({count})</span>
+                            </button>
                           );
                         })}
                       </div>
@@ -316,14 +323,16 @@ export default function Category() {
 
                     {/* Commercial filter */}
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-chess-charcoal mb-3">Type</h4>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-chess-charcoal dark:text-zinc-400 mb-3">Type</h4>
                       <button
                         onClick={() => setCommercialOnly(!commercialOnly)}
                         className={`flex items-center gap-2 w-full px-2 py-1.5 text-xs rounded-sm transition-colors
-                          ${commercialOnly ? "bg-chess-bronze/10 text-chess-bronze font-medium" : "text-chess-graphite hover:bg-chess-cream"}`}
+                        ${commercialOnly
+                            ? "bg-chess-bronze/10 text-chess-bronze font-medium dark:bg-chess-bronze/20"
+                            : "text-chess-graphite dark:text-zinc-400 hover:bg-chess-cream dark:hover:bg-zinc-800"}`}
                       >
-                        <span className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center
-                          ${commercialOnly ? "border-chess-bronze bg-chess-bronze" : "border-border"}`}>
+                        <span className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center transition-colors
+                        ${commercialOnly ? "border-chess-bronze bg-chess-bronze" : "border-border dark:border-zinc-700"}`}>
                           {commercialOnly && <Check className="w-2.5 h-2.5 text-white" />}
                         </span>
                         Commercial Grade Only
@@ -332,14 +341,16 @@ export default function Category() {
 
                     {/* Availability */}
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-chess-charcoal mb-3">Availability</h4>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-chess-charcoal dark:text-zinc-400 mb-3">Availability</h4>
                       <button
                         onClick={() => setInStockOnly(!inStockOnly)}
                         className={`flex items-center gap-2 w-full px-2 py-1.5 text-xs rounded-sm transition-colors
-                          ${inStockOnly ? "bg-chess-bronze/10 text-chess-bronze font-medium" : "text-chess-graphite hover:bg-chess-cream"}`}
+                        ${inStockOnly
+                            ? "bg-chess-bronze/10 text-chess-bronze font-medium dark:bg-chess-bronze/20"
+                            : "text-chess-graphite dark:text-zinc-400 hover:bg-chess-cream dark:hover:bg-zinc-800"}`}
                       >
-                        <span className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center
-                          ${inStockOnly ? "border-chess-bronze bg-chess-bronze" : "border-border"}`}>
+                        <span className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center transition-colors
+                        ${inStockOnly ? "border-chess-bronze bg-chess-bronze" : "border-border dark:border-zinc-700"}`}>
                           {inStockOnly && <Check className="w-2.5 h-2.5 text-white" />}
                         </span>
                         In Stock Only
@@ -354,7 +365,7 @@ export default function Category() {
                           setCommercialOnly(false);
                           setInStockOnly(false);
                         }}
-                        className="text-xs text-chess-bronze hover:underline"
+                        className="text-xs text-chess-bronze hover:underline dark:text-chess-bronze"
                       >
                         Clear all filters
                       </button>
@@ -369,13 +380,13 @@ export default function Category() {
               {loading ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {[...Array(12)].map((_, i) => (
-                    <div key={i} className="bg-chess-cream rounded-sm animate-pulse aspect-[3/4]" />
+                    <div key={i} className="bg-chess-cream dark:bg-zinc-900 rounded-sm animate-pulse aspect-[3/4]" />
                   ))}
                 </div>
               ) : filteredProducts.length === 0 ? (
                 <div className="text-center py-20">
-                  <p className="text-lg font-display font-semibold text-chess-charcoal mb-2">No products found</p>
-                  <p className="text-sm text-muted-foreground">Try adjusting your filters or search terms.</p>
+                  <p className="text-lg font-display font-semibold text-chess-charcoal dark:text-zinc-200 mb-2">No products found</p>
+                  <p className="text-sm text-muted-foreground dark:text-zinc-500">Try adjusting your filters or search terms.</p>
                 </div>
               ) : (
                 <div className={

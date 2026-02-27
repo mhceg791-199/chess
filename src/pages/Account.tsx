@@ -347,7 +347,7 @@ export default function Account() {
                               </div>
                             </div>
                             <div className="flex items-center gap-3 pt-3 border-t border-border/30 dark:border-zinc-800">
-                              <Link href={`/orders/${order._id}`} className="flex items-center gap-1 text-xs font-medium text-chess-bronze hover:underline">
+                              <Link href={`/orders/${order._id}`} className="flex items-center gap-1 text-xs font-medium text-chess-bronze hover:underline dark:text-white">
                                 <Eye className="w-3 h-3" /> View Details
                               </Link>
                             </div>

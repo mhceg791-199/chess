@@ -138,7 +138,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2 text-sm text-white/60">
                 <MapPin className="w-4 h-4 shrink-0 mt-0.5 text-white" />
-                <span>Toronto, Ontario, Canada</span>
+                <span>Calgary, Alberta, Canada</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-white/60">
                 <Clock className="w-4 h-4 shrink-0 mt-0.5 text-white" />
