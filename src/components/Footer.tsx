@@ -52,7 +52,6 @@ export default function Footer() {
             <p className="text-sm text-white/60 leading-relaxed mb-3">
               Canadian Home, Electrical and Supply Solutions. A unified platform for residential and commercial projects.
             </p>
-            <p className="text-[11px] text-white/40 border-l-2 border-chess-bronze/40 pl-3">A brand of Mosaic Holding Corporation</p>
             <div className="flex items-center gap-3 mt-5">
               <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-chess-bronze transition-colors">
                 <Facebook className="w-3.5 h-3.5" />
